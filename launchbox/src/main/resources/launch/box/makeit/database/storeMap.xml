@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="store"> 
+	<insert id="join" parameterType="launch.box.makeit.store.vo.StoreVO">
+		INSERT INTO store
+		(email,emailDomain,password,phone,location,division,worker,crn,info,joinDate) VALUES
+		(#{email},#{emailDomain},#{password},#{phone},#{location},#{division},{#worker},#{crn},#{info},#{joinDate});
+	</insert>
+	<update id="alter" parameterType="launch.box.makeit.store.vo.StoreVO">
+		UPDATE store SET
+		password=#{password}, phone=#{phone}, location=#{location}, division=#{division}, worker=#{worker}, crn=#{crn}, info=#{info}
+		WHERE email=#{email} and emailDomain=#{emailDomain};
+	</update>
+	<delete id="dropout" parameterType="Map">
+		DELETE FROM store WHERE email=#{email} and emailDomain=#{emailDomain};
+	</delete>
+	<select id="checkDuplicatedEmail" parameterType="Map">
+		SELECT email FROM store WHERE email=#{email} and emailDomain=#{emailDomain};
+	</select>
+	<select id="pullStoreInfo" parameterType="Map">
+		SELECT * FROM store WHERE email=#{email} and emailDomain=#{emailDomain};
+	</select>
+	<select id="login" parameterType="Map">
+		SELCT * FROM store WHERE email=#{email} and emailDomain=#{emailDomain} and password=#{password};
+	</select>
+	<update id="inputLastLoginDate">
+		UPDATE store SET
+		lastLoginDate=#{lastLoginDate} WHERE email=#{email} and emailDomain=#{emailDomain};
+	</update>
+</mapper>
