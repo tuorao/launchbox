@@ -10,7 +10,7 @@ import java.sql.Date;
 
 public class StoreVO {
 	
-	private int srl; 
+	private int srl; // 매장 고유 번호
 	private String email; // id로 사용할 email
 	private String emainDoamin; // email의 도메인
 	private String password; // 비밀번호

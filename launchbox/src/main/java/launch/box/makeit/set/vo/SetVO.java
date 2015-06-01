@@ -8,12 +8,12 @@ package launch.box.makeit.set.vo;
 
 public class SetVO {
 	
-	private int srl;
-	private String category;
-	private String title;
-	private int price;
-	private int orderCount;
-	private String content;
+	private int srl; // 세트 고유 번호
+	private String category; // 카테고리 .. 이게 필요한가?
+	private String title; // 세트 제목 .. 이것도 필요한가?
+	private int price; // 가격, 아이템 리스트들의 가격
+	private int orderCount; // 이것도 필요한가 ..?
+	private String content; // 설명.. 이것도 필요한가?
 	public int getSrl() {
 		return srl;
 	}

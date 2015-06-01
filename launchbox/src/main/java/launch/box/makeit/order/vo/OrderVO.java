@@ -10,14 +10,14 @@ import java.sql.Date;
 
 public class OrderVO {
 
-	private int srl;
-	private int storeSrl;
-	private int phase;
-	private int isFlush;
-	private int setSrl;
-	private int price;
-	private Date startTime;
-	private Date endTime;
+	private int srl; // 주문 고유 번호
+	private int storeSrl; // 매장 번호
+	private int phase; // 주문 상태 ex) 1.착수, 2.조리중, 3.완료
+	private int isFlush; // 쓸데없음
+	private int setSrl; // 세트 번호 
+	private int price; // 가격
+	private Date startTime; // 조리 시작 시간
+	private Date endTime; // 조리 끝 시간
 	public int getSrl() {
 		return srl;
 	}

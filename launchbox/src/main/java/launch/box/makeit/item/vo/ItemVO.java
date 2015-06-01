@@ -8,12 +8,12 @@ package launch.box.makeit.item.vo;
 
 public class ItemVO {
 	
-	private int itemSrl;
-	private String category;
-	private String title;
-	private int price;
-	private String photo;
-	private String content;
+	private int itemSrl; // 아이템 고유 번호
+	private String category; // 카테고리 ex)밥류,국류.. 
+	private String title; // 제목 ex) 김치
+	private int price; // 가격 ex) 김치 : 300
+	private String photo; // 음식 사진
+	private String content; // 음식 설명
 	
 	public int getItemSrl() {
 		return itemSrl;

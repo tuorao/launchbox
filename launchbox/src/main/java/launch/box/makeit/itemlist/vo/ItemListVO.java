@@ -8,10 +8,10 @@ package launch.box.makeit.itemlist.vo;
 
 public class ItemListVO {
 	
-	private int itemListSrl;
-	private int setSrl;
-	private int itemSrl;
-	private int isFlush;
+	private int itemListSrl; // 아이템 리스트 고유 번호
+	private int setSrl; // 세트 구성 고유 번호
+	private int itemSrl; // 아이템 번호
+	private int isFlush; // 이건 일단 쓸데 없다
 	
 	public int getItemListSrl() {
 		return itemListSrl;
