@@ -26,4 +26,24 @@ public class MFCStoreController {
 	public int StoreJoin(@ModelAttribute StoreVO store){
 		return service.join(store);
 	}
+	
+	@RequestMapping(value="/dropout", method=RequestMethod.POST)
+	public int StoreDropout(@ModelAttribute StoreVO store){
+		return service.dropout(store.getEmail(), store.getEmainDoamin());
+	}
+	
+	@RequestMapping(value="/checkDuplicatedEmail", method=RequestMethod.POST)
+	public int StoreCheckDuplicatedEmail(@ModelAttribute StoreVO store){
+		return service.checkDuplicatedEmail(store.getEmail(), store.getEmainDoamin());
+	}
+	
+	@RequestMapping(value="/pullStoreInfo", method=RequestMethod.POST)
+	public StoreVO StorePullStoreInfo(@ModelAttribute StoreVO store){
+		return service.pullStoreInfo(store.getEmail(), store.getEmainDoamin());
+	}
+	
+	@RequestMapping(value="/alter", method=RequestMethod.POST)
+	public int StoreAlter(@ModelAttribute StoreVO store){
+		return service.alter(store);
+	}
 }
