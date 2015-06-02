@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	<insert id="join" parameterType="launch.box.makeit.user.vo.UserVO">
+		INSERT INTO user
+		(storeSrls,email,emailDomain,password,name,nickname,phone,address,birthDate,joinDate,pwQuestion,pwAnswer)
+		VALUES
+		(#{storeSrls},#{email},#{emailDomain},#{password},#{name},#{nickname},#{phone},#{address},#{birthDate},#{joinDate},#{pwQuestion},#{pwAnswer});
+	</insert>
+	<update id="alter" parameterType="launch.box.makeit.user.vo.UserVO">
+		UPDATE user SET
+		password=#{password}, nickname=#{nickname}, phone=#{phone}, address=#{address}
+		WHERE email=#{email} and emailDomain=#{emailDomain};
+	</update>
+	<delete id="dropout" parameterType="Integer">
+		DELETE FROM user 
+		WHERE srl=#{value};
+	</delete>
+	<select id="login" parameterType="launch.box.makeit.user.vo.UserVO" resultType="launch.box.makeit.user.vo.UserVO">
+		SELECT * FROM user 
+		WHERE email=#{email} and emailDomain=#{emailDomain} and password=#{password};
+	</select>
+	<update id="inputPushKey" parameterType="launch.box.makeit.user.vo.UserVO">
+		UPDATE user SET pushKey=#{pushKey} 
+		WHERE email=#{email} and emailDomain=#{emailDomain};
+	</update>
+	<select id="checkEmail" parameterMap="launch.box.makeit.user.vo.UserVO" resultType="String">
+		SELECT email FROM user
+		WHERE email=#{email} and emailDomain=#{emailDomain};
+	</select>
+	<select id="checkNickname" parameterType="launch.box.makeit.user.vo.UserVO" resultType="String">
+		SELECT nickname FROM user
+		WHERE nickname=#{nickname};
+	</select>
+	<select id="pullAllUser"></select>
+
+</mapper>
