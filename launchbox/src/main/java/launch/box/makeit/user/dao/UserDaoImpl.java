@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 3.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 3.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.user.dao;
 
@@ -31,7 +31,7 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 
 	@Override
 	public UserVO login(UserVO user) {
-		return getSqlSession().selectOne("user.login", user);
+		return (UserVO) getSqlSession().selectOne("user.login", user);
 	}
 
 	@Override
@@ -41,12 +41,12 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 
 	@Override
 	public String checkEmail(UserVO user) {
-		return getSqlSession().selectOne("user.checkEmail", user);
+		return (String) getSqlSession().selectOne("user.checkEmail", user);
 	}
 
 	@Override
 	public String checkNickname(UserVO user) {
-		return getSqlSession().selectOne("user.checkNickname", user);
+		return (String) getSqlSession().selectOne("user.checkNickname", user);
 	}
 
 }

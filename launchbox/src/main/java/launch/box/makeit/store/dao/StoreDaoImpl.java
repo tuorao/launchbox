@@ -51,7 +51,7 @@ public class StoreDaoImpl extends SqlSessionDaoSupport implements StoreDao{
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("email", email);
 		map.put("emailDomain", emailDomain);
-		return getSqlSession().selectOne("store.checkDuplicatedEmail", map);
+		return (String) getSqlSession().selectOne("store.checkDuplicatedEmail", map);
 	}
 
 	@Override
@@ -59,7 +59,7 @@ public class StoreDaoImpl extends SqlSessionDaoSupport implements StoreDao{
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("email", email);
 		map.put("emailDomain", emailDomain);
-		return getSqlSession().selectOne("store.pullStoreInfo", map);
+		return (StoreVO) getSqlSession().selectOne("store.pullStoreInfo", map);
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class StoreDaoImpl extends SqlSessionDaoSupport implements StoreDao{
 		map.put("email", email);
 		map.put("emailDomain", emailDomain);
 		map.put("password", password);
-		return getSqlSession().selectOne("store.login", map);
+		return (StoreVO) getSqlSession().selectOne("store.login", map);
 	}
 
 }

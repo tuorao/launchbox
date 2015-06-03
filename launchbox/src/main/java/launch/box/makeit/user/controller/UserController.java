@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 3.
-* ÀÛ¼ºÀÚ : Administrator
+* ì‘ì„±ì¼ : 2015. 6. 3.
+* ì‘ì„±ì : Administrator
 *
-* ¼³¸í
+* ì„¤ëª…
 */
 package launch.box.makeit.user.controller;
 
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-// ¾ÆÁ÷ oAuth °ü·Ã ÀÛ¾÷, push °ü·Ã ÀÛ¾÷ÀÌ ÇÊ¿äÇÔ
+// ì•„ì§ oAuth ê´€ë ¨ ì‘ì—…, push ê´€ë ¨ ì‘ì—…ì´ í•„ìš”í•¨
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,38 +25,38 @@ public class UserController {
 	@Autowired
 	UserService service;
 	
-	// È¸¿øÁ¤º¸ º¯°æ
-	@RequestMapping(value="/alter.do", method=RequestMethod.POST)
+	// íšŒì›ì •ë³´ ë³€ê²½
+	@RequestMapping(value="/alter", method=RequestMethod.POST)
 	public int UserAlter(@ModelAttribute UserVO user){
 		return service.alter(user);
 	}
 	
-	// È¸¿øÅ»Åğ
-	@RequestMapping(value="/dropout.do", method=RequestMethod.POST)
+	// íšŒì›íƒˆí‡´
+	@RequestMapping(value="/dropout", method=RequestMethod.POST)
 	public int UserDropout(@RequestParam int srl){
 		return service.dropout(srl);
 	}
 	
-	// ·Î±×ÀÎ
-	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	// ë¡œê·¸ì¸
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public UserVO UserLogin(@ModelAttribute UserVO user){
 		return service.login(user);
 	}
 	
-	// °¡ÀÔ
-	@RequestMapping(value="/join.do", method=RequestMethod.POST)
+	// ê°€ì…
+	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public int UserJoin(@ModelAttribute UserVO user){
 		return service.join(user);
 	}
 	
-	// ¾ÆÀÌµğ Áßº¹Ã¼Å©
-	@RequestMapping(value="/checkEmail.do", method=RequestMethod.POST)
+	// ì•„ì´ë”” ì¤‘ë³µì²´í¬
+	@RequestMapping(value="/checkEmail", method=RequestMethod.POST)
 	public int UserCheckEmail(@ModelAttribute UserVO user){
 		return service.checkEmail(user);
 	}
 	
-	// ´Ğ³×ÀÓ Áßº¹Ã¼Å©
-	@RequestMapping(value="/checkNickname.do", method=RequestMethod.POST)
+	// ë‹‰ë„¤ì„ ì¤‘ë³µì²´í¬
+	@RequestMapping(value="/checkNickname.", method=RequestMethod.POST)
 	public int UserCheckNickname(@ModelAttribute UserVO user){
 		return service.checkNickname(user);
 	}

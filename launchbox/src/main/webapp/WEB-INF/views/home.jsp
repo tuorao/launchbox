@@ -5,10 +5,14 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+----------------회원 가입 -----------<br>
+<form method="post" action="user/join">
+id = <input type="text" name="storeSrls"><br>
+pass = <input type="text" name="email"><br>
 
-<P>  The time on the server is ${serverTime}. </P>
+
+submit = <input type="submit" value="submit"><br>
+</form>
+----------------회원 가입 -----------<br>
 </body>
 </html>
