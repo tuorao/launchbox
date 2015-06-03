@@ -16,7 +16,7 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 
 	@Override
 	public int join(UserVO user) {
-		return getSqlSession().insert("user.join", user);
+		return getSqlSession().insert("user.join2", user);
 	}
 
 	@Override

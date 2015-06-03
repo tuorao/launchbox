@@ -1,17 +1,17 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.itemlist.vo;
 
 public class ItemListVO {
 	
-	private int itemListSrl; // ¾ÆÀÌÅÛ ¸®½ºÆ® °íÀ¯ ¹øÈ£
-	private int setSrl; // ¼¼Æ® ±¸¼º °íÀ¯ ¹øÈ£
-	private int itemSrl; // ¾ÆÀÌÅÛ ¹øÈ£
-	private int isFlush; // ÀÌ°Ç ÀÏ´Ü ¾µµ¥ ¾ø´Ù
+	private int itemListSrl; // itemlist ê³ ìœ ë²ˆí˜¸
+	private int setSrl; // ì„¸íŠ¸ë²ˆí˜¸
+	private int itemSrl; // ì•„ì´í…œ ë²ˆí˜¸
+	private int isFlush; // ì´ê±´ ì“¸ë°ì—†ìŒ
 	
 	public int getItemListSrl() {
 		return itemListSrl;

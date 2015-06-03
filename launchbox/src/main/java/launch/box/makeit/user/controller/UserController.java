@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-// 아직 oAuth 관련 작업, push 관련 작업이 필요함
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -25,37 +24,31 @@ public class UserController {
 	@Autowired
 	UserService service;
 	
-	// 회원정보 변경
 	@RequestMapping(value="/alter", method=RequestMethod.POST)
 	public int UserAlter(@ModelAttribute UserVO user){
 		return service.alter(user);
 	}
 	
-	// 회원탈퇴
 	@RequestMapping(value="/dropout", method=RequestMethod.POST)
 	public int UserDropout(@RequestParam int srl){
 		return service.dropout(srl);
 	}
 	
-	// 로그인
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public UserVO UserLogin(@ModelAttribute UserVO user){
 		return service.login(user);
 	}
 	
-	// 가입
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public int UserJoin(@ModelAttribute UserVO user){
 		return service.join(user);
 	}
 	
-	// 아이디 중복체크
 	@RequestMapping(value="/checkEmail", method=RequestMethod.POST)
 	public int UserCheckEmail(@ModelAttribute UserVO user){
 		return service.checkEmail(user);
 	}
 	
-	// 닉네임 중복체크
 	@RequestMapping(value="/checkNickname.", method=RequestMethod.POST)
 	public int UserCheckNickname(@ModelAttribute UserVO user){
 		return service.checkNickname(user);
