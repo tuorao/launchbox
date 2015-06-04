@@ -3,6 +3,11 @@
 
 <mapper namespace="itemlist">
 	<insert id="input" parameterType="launch.box.makeit.itemlist.vo.ItemListVO">
-		INSERT INTO itemlist
+		INSERT INTO itemList
+		(setSrl,itemSrl) VALUES
+		(#{setSrl},#{itemSrl});
 	</insert>
+	<select id="pullItemSrl" parameterType="Integer" resultType="Integer">
+		SELECT itemSrl FROM itemList WHERE setSrl=#{setSrl};
+	</select>
 </mapper>

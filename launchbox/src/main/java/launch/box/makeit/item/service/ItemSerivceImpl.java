@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 2.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 2.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.item.service;
 
@@ -22,7 +22,6 @@ public class ItemSerivceImpl implements ItemService{
 
 	@Override
 	public List<ItemVO> pullAllItem() {
-		// TODO Auto-generated method stub
 		return dao.pullAllItem();
 	}
 

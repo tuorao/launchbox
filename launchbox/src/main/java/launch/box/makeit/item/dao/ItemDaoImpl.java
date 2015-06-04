@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 2.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 2.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.item.dao;
 
@@ -21,6 +21,12 @@ public class ItemDaoImpl extends SqlSessionDaoSupport implements ItemDao{
 		// TODO Auto-generated method stub
 		return getSqlSession().selectList("item.pullAllItem");
 		
+	}	
+
+	@Override
+	public int pullItemPrice(int srl) {
+		// TODO Auto-generated method stub
+		return (Integer) getSqlSession().selectOne("item.pullItemPrice", srl);
 	}
 
 	

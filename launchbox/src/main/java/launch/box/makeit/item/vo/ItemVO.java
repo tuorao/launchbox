@@ -1,25 +1,24 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.item.vo;
 
 public class ItemVO {
 	
-	private int itemSrl; // ¾ÆÀÌÅÛ °íÀ¯ ¹øÈ£
-	private String category; // Ä«Å×°í¸® ex)¹ä·ù,±¹·ù.. 
-	private String title; // Á¦¸ñ ex) ±èÄ¡
-	private int price; // °¡°İ ex) ±èÄ¡ : 300
-	private String photo; // À½½Ä »çÁø
-	private String content; // À½½Ä ¼³¸í
-	
-	public int getItemSrl() {
-		return itemSrl;
+	private int srl; // ì•„ì´í…œ ë²ˆí˜¸
+	private String category; // ë¶„ë¥˜
+	private String title; // ì œëª©
+	private int price; // ê°€ê²©
+	private String photo; // ì‚¬ì§„
+	private String content; // ë‚´ìš©
+	public int getSrl() {
+		return srl;
 	}
-	public void setItemSrl(int itemSrl) {
-		this.itemSrl = itemSrl;
+	public void setSrl(int srl) {
+		this.srl = srl;
 	}
 	public String getCategory() {
 		return category;
@@ -51,12 +50,12 @@ public class ItemVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
 	@Override
 	public String toString() {
-		return "ItemVO [itemSrl=" + itemSrl + ", category=" + category
-				+ ", title=" + title + ", price=" + price + ", photo=" + photo
+		return "ItemVO [srl=" + srl + ", category=" + category + ", title="
+				+ title + ", price=" + price + ", photo=" + photo
 				+ ", content=" + content + "]";
 	}
 	
+
 }

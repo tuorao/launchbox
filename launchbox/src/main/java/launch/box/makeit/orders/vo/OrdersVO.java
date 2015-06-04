@@ -1,23 +1,23 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
-package launch.box.makeit.order.vo;
+package launch.box.makeit.orders.vo;
 
 import java.sql.Date;
 
-public class OrderVO {
+public class OrdersVO {
 
-	private int srl; // ÁÖ¹® °íÀ¯ ¹øÈ£
-	private int storeSrl; // ¸ÅÀå ¹øÈ£
-	private int phase; // ÁÖ¹® »óÅÂ ex) 1.Âø¼ö, 2.Á¶¸®Áß, 3.¿Ï·á
-	private int isFlush; // ¾µµ¥¾øÀ½
-	private int setSrl; // ¼¼Æ® ¹øÈ£ 
-	private int price; // °¡°Ý
-	private Date startTime; // Á¶¸® ½ÃÀÛ ½Ã°£
-	private Date endTime; // Á¶¸® ³¡ ½Ã°£
+	private int srl; // ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	private int userSrl;
+	private int storeSrl; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	private int phase; // ï¿½Ö¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ex) 1.ï¿½ï¿½ï¿½ï¿½, 2.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, 3.ï¿½Ï·ï¿½
+	private int setSrl; // ï¿½ï¿½Æ® ï¿½ï¿½È£ 
+	private int price; // ï¿½ï¿½ï¿½ï¿½
+	private Date startTime; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+	private Date endTime; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ã°ï¿½
 	public int getSrl() {
 		return srl;
 	}
@@ -35,12 +35,6 @@ public class OrderVO {
 	}
 	public void setPhase(int phase) {
 		this.phase = phase;
-	}
-	public int getIsFlush() {
-		return isFlush;
-	}
-	public void setIsFlush(int isFlush) {
-		this.isFlush = isFlush;
 	}
 	public int getSetSrl() {
 		return setSrl;
@@ -69,9 +63,15 @@ public class OrderVO {
 	@Override
 	public String toString() {
 		return "OrderVO [srl=" + srl + ", storeSrl=" + storeSrl + ", phase="
-				+ phase + ", isFlush=" + isFlush + ", setSrl=" + setSrl
+				+ phase + ", setSrl=" + setSrl
 				+ ", price=" + price + ", startTime=" + startTime
 				+ ", endTime=" + endTime + "]";
+	}
+	public int getUserSrl() {
+		return userSrl;
+	}
+	public void setUserSrl(int userSrl) {
+		this.userSrl = userSrl;
 	}
 	
 }

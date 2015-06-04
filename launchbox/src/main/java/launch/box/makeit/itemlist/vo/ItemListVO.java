@@ -8,16 +8,14 @@ package launch.box.makeit.itemlist.vo;
 
 public class ItemListVO {
 	
-	private int itemListSrl; // itemlist 고유번호
+	private int srl; // itemlist 고유번호
 	private int setSrl; // 세트번호
 	private int itemSrl; // 아이템 번호
-	private int isFlush; // 이건 쓸데없음
-	
-	public int getItemListSrl() {
-		return itemListSrl;
+	public int getSrl() {
+		return srl;
 	}
-	public void setItemListSrl(int itemListSrl) {
-		this.itemListSrl = itemListSrl;
+	public void setSrl(int srl) {
+		this.srl = srl;
 	}
 	public int getSetSrl() {
 		return setSrl;
@@ -31,17 +29,11 @@ public class ItemListVO {
 	public void setItemSrl(int itemSrl) {
 		this.itemSrl = itemSrl;
 	}
-	public int getIsFlush() {
-		return isFlush;
-	}
-	public void setIsFlush(int isFlush) {
-		this.isFlush = isFlush;
-	}
-	
 	@Override
 	public String toString() {
-		return "ItemListVO [itemListSrl=" + itemListSrl + ", setSrl=" + setSrl
-				+ ", itemSrl=" + itemSrl + ", isFlush=" + isFlush + "]";
+		return "ItemListVO [srl=" + srl + ", setSrl=" + setSrl + ", itemSrl="
+				+ itemSrl + "]";
 	}
+	
 	
 }

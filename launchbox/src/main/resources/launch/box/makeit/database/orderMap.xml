@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="order">
+	<insert id="input" parameterType="launch.box.makeit.order.vo.OrderVO">
+		INSERT INTO orders
+		(userSrl,phase,startTime) VALUES
+		(#{userSrl},#{phase},now());
+	</insert>
+	<select id="pullRecentInputSrl" resultType="Integer">
+		select srl from orders order by startTime desc limit 1;
+	</select>
+</mapper>

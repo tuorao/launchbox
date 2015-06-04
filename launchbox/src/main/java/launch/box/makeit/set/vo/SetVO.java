@@ -1,60 +1,30 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.set.vo;
 
 public class SetVO {
 	
-	private int srl; // ¼¼Æ® °íÀ¯ ¹øÈ£
-	private String category; // Ä«Å×°í¸® .. ÀÌ°Ô ÇÊ¿äÇÑ°¡?
-	private String title; // ¼¼Æ® Á¦¸ñ .. ÀÌ°Íµµ ÇÊ¿äÇÑ°¡?
-	private int price; // °¡°Ý, ¾ÆÀÌÅÛ ¸®½ºÆ®µéÀÇ °¡°Ý
-	private int orderCount; // ÀÌ°Íµµ ÇÊ¿äÇÑ°¡ ..?
-	private String content; // ¼³¸í.. ÀÌ°Íµµ ÇÊ¿äÇÑ°¡?
+	private int srl;
+	private int orderSrl;
 	public int getSrl() {
 		return srl;
 	}
 	public void setSrl(int srl) {
 		this.srl = srl;
 	}
-	public String getCategory() {
-		return category;
+	public int getOrderSrl() {
+		return orderSrl;
 	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
-	}
-	public int getOrderCount() {
-		return orderCount;
-	}
-	public void setOrderCount(int orderCount) {
-		this.orderCount = orderCount;
-	}
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setOrderSrl(int orderSrl) {
+		this.orderSrl = orderSrl;
 	}
 	@Override
 	public String toString() {
-		return "SetVO [srl=" + srl + ", category=" + category + ", title="
-				+ title + ", price=" + price + ", orderCount=" + orderCount
-				+ ", content=" + content + "]";
+		return "SetVO [srl=" + srl + ", orderSrl=" + orderSrl + "]";
 	}
 
 }

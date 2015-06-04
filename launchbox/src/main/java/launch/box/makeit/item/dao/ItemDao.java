@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 2.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 2.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.item.dao;
 
@@ -12,4 +12,5 @@ import launch.box.makeit.item.vo.ItemVO;
 
 public interface ItemDao {
 	List<ItemVO> pullAllItem();
+	int pullItemPrice(int srl);
 }
