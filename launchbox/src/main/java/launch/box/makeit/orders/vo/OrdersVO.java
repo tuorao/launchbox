@@ -7,28 +7,25 @@
 package launch.box.makeit.orders.vo;
 
 import java.sql.Date;
+import java.util.List;
+
+import launch.box.makeit.itemlist.vo.ItemListVO;
 
 public class OrdersVO {
 
-	private int srl; // �ֹ� ���� ��ȣ
+	private int srl; 
 	private int userSrl;
-	private int storeSrl; // ���� ��ȣ
-	private int phase; // �ֹ� ���� ex) 1.����, 2.������, 3.�Ϸ�
-	private int setSrl; // ��Ʈ ��ȣ 
-	private int price; // ����
-	private Date startTime; // ���� ���� �ð�
-	private Date endTime; // ���� �� �ð�
+	private int phase; 
+	private int setSrl; 
+	private int price; 
+	private Date startTime; 
+	private Date endTime; 
+	private List<ItemListVO> itemList;
 	public int getSrl() {
 		return srl;
 	}
 	public void setSrl(int srl) {
 		this.srl = srl;
-	}
-	public int getStoreSrl() {
-		return storeSrl;
-	}
-	public void setStoreSrl(int storeSrl) {
-		this.storeSrl = storeSrl;
 	}
 	public int getPhase() {
 		return phase;
@@ -60,18 +57,24 @@ public class OrdersVO {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	@Override
-	public String toString() {
-		return "OrderVO [srl=" + srl + ", storeSrl=" + storeSrl + ", phase="
-				+ phase + ", setSrl=" + setSrl
-				+ ", price=" + price + ", startTime=" + startTime
-				+ ", endTime=" + endTime + "]";
-	}
 	public int getUserSrl() {
 		return userSrl;
 	}
 	public void setUserSrl(int userSrl) {
 		this.userSrl = userSrl;
+	}
+	public List<ItemListVO> getItemList() {
+		return itemList;
+	}
+	public void setItemList(List<ItemListVO> itemList) {
+		this.itemList = itemList;
+	}
+	@Override
+	public String toString() {
+		return "OrdersVO [srl=" + srl + ", userSrl=" + userSrl + ", phase="
+				+ phase + ", setSrl=" + setSrl + ", price=" + price
+				+ ", startTime=" + startTime + ", endTime=" + endTime
+				+ ", itemList=" + itemList + "]";
 	}
 	
 }

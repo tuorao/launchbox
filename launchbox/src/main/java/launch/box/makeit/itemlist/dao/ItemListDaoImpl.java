@@ -23,7 +23,7 @@ public class ItemListDaoImpl extends SqlSessionDaoSupport implements ItemListDao
 	}
 
 	@Override
-	public List<ItemListVO> pullItemSrl(int setSrl) {
+	public List<Integer> pullItemSrl(int setSrl) {
 		// TODO Auto-generated method stub
 		return getSqlSession().selectList("itemlist.pullItemSrl", setSrl);
 	}

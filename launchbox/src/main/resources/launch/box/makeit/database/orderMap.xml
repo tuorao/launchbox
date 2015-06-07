@@ -2,12 +2,40 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="order">
-	<insert id="input" parameterType="launch.box.makeit.order.vo.OrderVO">
+	<insert id="input" parameterType="launch.box.makeit.orders.vo.OrdersVO">
 		INSERT INTO orders
 		(userSrl,phase,startTime) VALUES
 		(#{userSrl},#{phase},now());
 	</insert>
 	<select id="pullRecentInputSrl" resultType="Integer">
-		select srl from orders order by startTime desc limit 1;
+		select srl from
+		orders order by startTime desc limit 1;
 	</select>
+	<update id="plusInput" parameterType="launch.box.makeit.orders.vo.OrdersVO">
+		UPDATE orders SET
+		price=#{price}, setSrl=#{setSrl}
+		WHERE srl=#{srl};
+	</update>
+	<select id="pullPhase1" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE
+		phase=1;
+	</select>
+	<select id="pullPhase2" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE
+		phase=2;
+	</select>
+	<select id="pullPhase3" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE
+		phase=3;
+	</select>
+	<update id="changePhase2">
+		UPDATE orders SET
+		phase=2
+		WHERE phase=1;
+	</update>
+	<update id="changePhase3">
+		UPDATE orders SET
+		phase=3
+		WHERE phase2;
+	</update>
 </mapper>

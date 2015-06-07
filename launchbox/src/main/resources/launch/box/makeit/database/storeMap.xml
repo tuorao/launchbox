@@ -22,7 +22,7 @@
 		SELECT * FROM store WHERE email=#{email} and emailDomain=#{emailDomain};
 	</select>
 	<select id="login" parameterType="Map">
-		SELCT * FROM store WHERE email=#{email} and emailDomain=#{emailDomain} and password=#{password};
+		SELECT * FROM store WHERE email=#{email} and emailDomain=#{emailDomain} and password=#{password};
 	</select>
 	<update id="inputLastLoginDate">
 		UPDATE store SET

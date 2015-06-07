@@ -6,6 +6,8 @@
 */
 package launch.box.makeit.orders.controller;
 
+import java.util.List;
+
 import launch.box.makeit.orders.service.OrdersService;
 import launch.box.makeit.orders.vo.OrdersVO;
 
@@ -23,10 +25,20 @@ public class OrdersController {
 	OrdersService service;
 	
 	@RequestMapping(value="/input", method=RequestMethod.POST)
-	public int OrderInput(@RequestParam int userSrl, @RequestParam int[] itemSrl){
+	public int OrderInput(@RequestParam int userSrl, @RequestParam List<Integer> itemSrl){
 		OrdersVO order = new OrdersVO();
 		order.setUserSrl(userSrl);
 		order.setPhase(1);
-		return 0;
+		return service.input(order,itemSrl);
 	}
+	
+	@RequestMapping(value="/pullPhase1", method=RequestMethod.GET)
+	public List<OrdersVO> OrderPullPhase1(){
+		return service.pullPhase1();
+	}
+	
+	
+	
+	
+	
 }

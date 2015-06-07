@@ -6,6 +6,8 @@
 */
 package launch.box.makeit.orders.dao;
 
+import java.util.List;
+
 import launch.box.makeit.orders.vo.OrdersVO;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -16,8 +18,42 @@ public class OrdersDaoImpl extends SqlSessionDaoSupport implements OrdersDao{
 
 	@Override
 	public int input(OrdersVO order) {
-		// TODO Auto-generated method stub
 		return getSqlSession().insert("order.input", order);
+	}
+
+	@Override
+	public int pullRecentInputSrl() {
+		return (Integer) getSqlSession().selectOne("order.pullRecentInputSrl");
+	}
+
+	@Override
+	public int plusInput(OrdersVO order) {
+		return getSqlSession().update("order.plusInput", order);
+	}
+
+	@Override
+	public List<OrdersVO> pullPhase1() {
+		return getSqlSession().selectList("order.pullPhase1");
+	}
+
+	@Override
+	public List<OrdersVO> pullPhase2() {
+		return getSqlSession().selectList("order.pullPhase2");
+	}
+
+	@Override
+	public List<OrdersVO> pullPhase3() {
+		return getSqlSession().selectList("order.pullPhase3");
+	}
+
+	@Override
+	public int changePhase2() {
+		return getSqlSession().update("order.changePhase2");
+	}
+
+	@Override
+	public int changePhase3() {
+		return getSqlSession().update("order.changePhase3");
 	}
 
 }
