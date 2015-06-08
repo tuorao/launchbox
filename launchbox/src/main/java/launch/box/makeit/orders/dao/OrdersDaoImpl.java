@@ -56,4 +56,9 @@ public class OrdersDaoImpl extends SqlSessionDaoSupport implements OrdersDao{
 		return getSqlSession().update("order.changePhase3");
 	}
 
+	@Override
+	public List<OrdersVO> pullAllOrder() {
+		return getSqlSession().selectList("order.pullAllOrder");
+	}
+
 }

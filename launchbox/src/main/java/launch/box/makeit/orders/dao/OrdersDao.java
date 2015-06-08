@@ -19,5 +19,5 @@ public interface OrdersDao {
 	List<OrdersVO> pullPhase3();
 	int changePhase2();
 	int changePhase3();
-
+	List<OrdersVO> pullAllOrder();
 }

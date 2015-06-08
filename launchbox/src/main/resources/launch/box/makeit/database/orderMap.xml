@@ -28,6 +28,9 @@
 		SELECT * FROM orders WHERE
 		phase=3;
 	</select>
+	<select id="pullAllOrder" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders
+	</select>
 	<update id="changePhase2">
 		UPDATE orders SET
 		phase=2

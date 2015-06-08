@@ -91,4 +91,9 @@ public class OrdersServiceImpl implements OrdersService{
 	public int changePhase3() {
 		return orderDao.changePhase3();
 	}
+
+	@Override
+	public List<OrdersVO> pullAllOrder() {
+		return orderDao.pullAllOrder();
+	}
 }

@@ -21,7 +21,7 @@ itemSrl : <input type="text" name="itemSrl">
 itemSrl : <input type="text" name="itemSrl">
 <input type="submit" value="submit">
 </form>
-<form action="order/pullPhase1" method="post">
+<form action="order/pullPhase1" method="get">
 <input type="submit" value="submit">
 </form>
 </body>

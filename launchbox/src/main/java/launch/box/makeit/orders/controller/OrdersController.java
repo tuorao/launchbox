@@ -37,7 +37,10 @@ public class OrdersController {
 		return service.pullPhase1();
 	}
 	
-	
+	@RequestMapping(value="/pullAllOrder", method=RequestMethod.GET)
+	public List<OrdersVO> pullAllOrder(){
+		return service.pullAllOrder();
+	}
 	
 	
 	
