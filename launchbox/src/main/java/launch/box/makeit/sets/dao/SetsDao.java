@@ -8,6 +8,6 @@ package launch.box.makeit.sets.dao;
 
 
 public interface SetsDao {
-	int input(int orderSrl);
+	int input(String sort);
 	int pullRecentPullSrl();
 }

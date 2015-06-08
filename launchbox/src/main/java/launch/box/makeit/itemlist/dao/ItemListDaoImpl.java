@@ -18,14 +18,19 @@ public class ItemListDaoImpl extends SqlSessionDaoSupport implements ItemListDao
 
 	@Override
 	public int input(ItemListVO itemList) {
-		// TODO Auto-generated method stub
 		return getSqlSession().insert("itemlist.input", itemList);
 	}
 
 	@Override
-	public List<Integer> pullItemSrl(int setSrl) {
-		// TODO Auto-generated method stub
-		return getSqlSession().selectList("itemlist.pullItemSrl", setSrl);
+	public List<Integer> pullItemSrl(String sort) {
+		return getSqlSession().selectList("itemlist.pullItemSrl", sort);
 	}
 
+	@Override
+	public List<ItemListVO> pullItemList(String sort) {
+		return getSqlSession().selectList("itemlist.pullItemList", sort);
+	}
+
+
 }
+	

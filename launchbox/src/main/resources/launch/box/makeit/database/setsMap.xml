@@ -4,8 +4,8 @@
 <mapper namespace="sets">
 	<insert id="input" parameterType="launch.box.makeit.sets.vo.SetsVO">
 		INSERT INTO sets
-		(orderSrl,inputTime) VALUES
-		(#{orderSrl},now());
+		(inputTime,sort) VALUES
+		(now(),#{sort});
 	</insert>
 	<select id="pullRecentInputSrl" resultType="Integer">
 		select srl from sets order by inputTime desc limit 1;

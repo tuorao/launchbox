@@ -15,9 +15,9 @@ import org.springframework.stereotype.Repository;
 public class SetsDaoImpl extends SqlSessionDaoSupport implements SetsDao{
 
 	@Override
-	public int input(int orderSrl) {
+	public int input(String sort) {
 		SetsVO sets = new SetsVO();
-		sets.setOrderSrl(orderSrl);
+		sets.setSort(sort);
 		return getSqlSession().insert("sets.input", sets);
 	}
 

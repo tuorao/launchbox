@@ -18,15 +18,18 @@ public class ItemDaoImpl extends SqlSessionDaoSupport implements ItemDao{
 
 	@Override
 	public List<ItemVO> pullAllItem() {
-		// TODO Auto-generated method stub
 		return getSqlSession().selectList("item.pullAllItem");
 		
 	}	
 
 	@Override
 	public int pullItemPrice(int srl) {
-		// TODO Auto-generated method stub
 		return (Integer) getSqlSession().selectOne("item.pullItemPrice", srl);
+	}
+
+	@Override
+	public ItemVO pullItemInfo(int srl) {
+		return (ItemVO) getSqlSession().selectOne("item.pullItemInfo", srl);
 	}
 
 	

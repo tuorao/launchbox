@@ -37,4 +37,7 @@
 		SELECT nickname FROM user
 		WHERE nickname=#{nickname};
 	</select>
+	<select id="pullUserInfo" parameterType="Integer" resultType="launch.box.makeit.user.vo.UserVO">
+		SELECT * FROM user WHERE srl=#{srl};
+	</select>
 </mapper>	

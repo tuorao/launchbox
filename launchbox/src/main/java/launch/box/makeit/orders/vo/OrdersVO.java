@@ -6,38 +6,36 @@
 */
 package launch.box.makeit.orders.vo;
 
-import java.sql.Date;
-import java.util.List;
+import java.util.Date;
 
-import launch.box.makeit.itemlist.vo.ItemListVO;
 
 public class OrdersVO {
 
-	private int srl; 
-	private int userSrl;
-	private int phase; 
-	private int setSrl; 
-	private int price; 
-	private Date startTime; 
-	private Date endTime; 
-	private List<ItemListVO> itemList;
+	private int srl; // 주문 번호
+	private int userSrl; // 고객 번호
+	private int phase; // 페이즈
+	private int price; // 가격
+	private Date startTime; // 시작시간
+	private Date endTime;  // 끝 시간
+	private String sort; // 고유번호
+	private int amount; // 수량
 	public int getSrl() {
 		return srl;
 	}
 	public void setSrl(int srl) {
 		this.srl = srl;
 	}
+	public int getUserSrl() {
+		return userSrl;
+	}
+	public void setUserSrl(int userSrl) {
+		this.userSrl = userSrl;
+	}
 	public int getPhase() {
 		return phase;
 	}
 	public void setPhase(int phase) {
 		this.phase = phase;
-	}
-	public int getSetSrl() {
-		return setSrl;
-	}
-	public void setSetSrl(int setSrl) {
-		this.setSrl = setSrl;
 	}
 	public int getPrice() {
 		return price;
@@ -57,24 +55,24 @@ public class OrdersVO {
 	public void setEndTime(Date endTime) {
 		this.endTime = endTime;
 	}
-	public int getUserSrl() {
-		return userSrl;
+	public String getSort() {
+		return sort;
 	}
-	public void setUserSrl(int userSrl) {
-		this.userSrl = userSrl;
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
-	public List<ItemListVO> getItemList() {
-		return itemList;
+	public int getAmount() {
+		return amount;
 	}
-	public void setItemList(List<ItemListVO> itemList) {
-		this.itemList = itemList;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 	@Override
 	public String toString() {
 		return "OrdersVO [srl=" + srl + ", userSrl=" + userSrl + ", phase="
-				+ phase + ", setSrl=" + setSrl + ", price=" + price
-				+ ", startTime=" + startTime + ", endTime=" + endTime
-				+ ", itemList=" + itemList + "]";
+				+ phase + ", price=" + price + ", startTime=" + startTime
+				+ ", endTime=" + endTime + ", sort=" + sort + ", amount="
+				+ amount + "]";
 	}
 	
 }

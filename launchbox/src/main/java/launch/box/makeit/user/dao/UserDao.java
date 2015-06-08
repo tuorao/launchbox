@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 3.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 3.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.user.dao;
 
@@ -16,4 +16,5 @@ public interface UserDao {
 	int inputPushKey(UserVO user);
 	String checkEmail(UserVO user);
 	String checkNickname(UserVO user);
+	UserVO pullUserInfo(int srl);
 }

@@ -9,7 +9,9 @@
    <select id="pullItemPrice" parameterType="Integer" resultType="Integer">
       SELECT price FROM item WHERE srl=#{srl};
    </select>
-   
+   <select id="pullItemInfo" parameterType="Integer" resultType="launch.box.makeit.item.vo.ItemVO">
+   	SELECT * FROM item where srl=#{srl};
+   </select>
    
    
 </mapper>

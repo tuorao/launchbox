@@ -49,4 +49,9 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 		return (String) getSqlSession().selectOne("user.checkNickname", user);
 	}
 
+	@Override
+	public UserVO pullUserInfo(int srl) {
+		return (UserVO) getSqlSession().selectOne("user.pullUserInfo", srl);
+	}
+
 }

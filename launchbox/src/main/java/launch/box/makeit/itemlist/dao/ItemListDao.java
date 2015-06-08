@@ -12,5 +12,6 @@ import launch.box.makeit.itemlist.vo.ItemListVO;
 
 public interface ItemListDao {
 	int input(ItemListVO itemList);
-	List<Integer> pullItemSrl(int setSrl);
+	List<Integer> pullItemSrl(String sort);
+	List<ItemListVO> pullItemList(String sort);
 }

@@ -13,4 +13,5 @@ import launch.box.makeit.item.vo.ItemVO;
 public interface ItemDao {
 	List<ItemVO> pullAllItem();
 	int pullItemPrice(int srl);
+	ItemVO pullItemInfo(int srl);
 }

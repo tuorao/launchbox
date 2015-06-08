@@ -1,28 +1,30 @@
 /*
-* �ۼ��� : 2015. 6. 3.
-* �ۼ��� : Administrator
+* �ۼ��� : 2015. 6. 3.
+* �ۼ��� : Administrator
 *
-* ����
+* ����
 */
 package launch.box.makeit.user.vo;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 public class UserVO {
-	private int srl;
-	private int storeSrls;
-	private String email;
-	private String emailDomain;
-	private String password;
-	private String name;
-	private String nickname;
-	private String phone;
-	private String address;
-	private Date birthDate;
-	private Date joinDate;
-	private Date lastLoginDate;
-	private String pwQuestion;
-	private String pwAnswer;
+	private int srl; // 유저 번호
+	private int storeSrls; // 매장 번호 - 그냥 1로한다
+	private String email; // 이메일
+	private String emailDomain; // 이메일도메인
+	private String password; // 비밀번호
+	private String name; // 이름
+	private String nickname; // 닉네임
+	private String phone; // 폰
+	private String address; // 주소
+	private Date birthDate; // 생일
+	private Date joinDate; // 가입일자
+	private Date lastLoginDate; // 최근 로그인 날짜
+	private String pwQuestion; // 비밀번호 찾기 질문
+	private String pwAnswer; // 비밀번호 찾기 답
 	private int oAuthProvider;
 	private String oAuthKey;
 	private String pushKey;

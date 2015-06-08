@@ -4,8 +4,8 @@
 <mapper namespace="order">
 	<insert id="input" parameterType="launch.box.makeit.orders.vo.OrdersVO">
 		INSERT INTO orders
-		(userSrl,phase,startTime) VALUES
-		(#{userSrl},#{phase},now());
+		(userSrl,phase,startTime,sort,amount) VALUES
+		(#{userSrl},#{phase},now(),#{sort},#{amount});
 	</insert>
 	<select id="pullRecentInputSrl" resultType="Integer">
 		select srl from
@@ -13,29 +13,33 @@
 	</select>
 	<update id="plusInput" parameterType="launch.box.makeit.orders.vo.OrdersVO">
 		UPDATE orders SET
-		price=#{price}, setSrl=#{setSrl}
+		price=#{price}
+		WHERE sort=#{sort};
+	</update>
+
+	<select id="pullALlSort" resultType="String">
+		SELECT sort FROM orders WHERE phase between 0 and 5;
+	</select>
+
+	<select id="pullOrder" parameterType="String" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE sort=#{sort};
+	</select>
+	<select id="pullUserBuyList" parameterType="Integer" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE userSrl=#{userSrl};
+	</select>
+	<update id="alterAllPhase0to1">
+		UPDATE orders SET
+		phase=1
+		WHERE phase=0;
+	</update>
+	<update id="alterPhase" parameterType="Map">
+		UPDATE orders SET
+		phase=#{phase}
 		WHERE srl=#{srl};
 	</update>
-	<select id="pullPhase1" resultType="launch.box.makeit.orders.vo.OrdersVO">
-		SELECT * FROM orders WHERE
-		phase=1;
+	<select id="pullPayedSort" resultType="String">
+		SELECT sort FROM orders WHERE phase=6;
 	</select>
-	<select id="pullPhase2" resultType="launch.box.makeit.orders.vo.OrdersVO">
-		SELECT * FROM orders WHERE
-		phase=2;
-	</select>
-	<select id="pullPhase3" resultType="launch.box.makeit.orders.vo.OrdersVO">
-		SELECT * FROM orders WHERE
-		phase=3;
-	</select>
-	<update id="changePhase2">
-		UPDATE orders SET
-		phase=2
-		WHERE phase=1;
-	</update>
-	<update id="changePhase3">
-		UPDATE orders SET
-		phase=3
-		WHERE phase2;
-	</update>
+
+	
 </mapper>

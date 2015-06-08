@@ -24,5 +24,16 @@ itemSrl : <input type="text" name="itemSrl">
 <form action="order/pullPhase1" method="post">
 <input type="submit" value="submit">
 </form>
+<form action="order/test" method="get">
+<input type="submit" value="submit">
+</form>
+<form action="order/UserBuyList" method="post">
+userSrl : <input type="text" name="userSrl">
+<input type="submit" value="submit">
+</form>
+<form action="order/t" method="get">
+userSrl : <input type="text" name="userSrl">
+<input type="submit" value="submit">
+</form>
 </body>
 </html>

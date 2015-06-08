@@ -4,10 +4,13 @@
 <mapper namespace="itemlist">
 	<insert id="input" parameterType="launch.box.makeit.itemlist.vo.ItemListVO">
 		INSERT INTO itemList
-		(setSrl,itemSrl) VALUES
-		(#{setSrl},#{itemSrl});
+		(itemSrl,sort) VALUES
+		(#{itemSrl},#{sort});
 	</insert>
-	<select id="pullItemSrl" parameterType="Integer" resultType="Integer">
-		SELECT itemSrl FROM itemList WHERE setSrl=#{setSrl};
+	<select id="pullItemSrl" parameterType="String" resultType="Integer">
+		SELECT itemSrl FROM itemList WHERE sort=#{sort};
+	</select>
+	<select id="pullItemList" parameterType="String" resultType="Integer">
+		SELECT * FROM itemList WHERE sort=#{sort};
 	</select>
 </mapper>
