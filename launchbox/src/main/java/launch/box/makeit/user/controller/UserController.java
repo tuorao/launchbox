@@ -6,10 +6,16 @@
 */
 package launch.box.makeit.user.controller;
 
+import javax.servlet.http.HttpSession;
+
 import launch.box.makeit.user.service.UserService;
 import launch.box.makeit.user.vo.UserVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.social.facebook.api.Facebook;
+import org.springframework.social.facebook.api.User;
+import org.springframework.social.facebook.api.impl.FacebookTemplate;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,4 +59,6 @@ public class UserController {
 	public int UserCheckNickname(@ModelAttribute UserVO user){
 		return service.checkNickname(user);
 	}
+	
+	
 }
