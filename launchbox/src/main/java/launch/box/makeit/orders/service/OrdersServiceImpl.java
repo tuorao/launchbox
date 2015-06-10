@@ -241,4 +241,10 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 
 
+	@Override
+	public List<OrdersVO> pullPhase(int phase) {
+		return orderDao.pullPhase(phase);
+	}
+
+
 }

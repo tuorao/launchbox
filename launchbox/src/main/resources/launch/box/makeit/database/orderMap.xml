@@ -40,6 +40,8 @@
 	<select id="pullPayedSort" resultType="String">
 		SELECT sort FROM orders WHERE phase=6;
 	</select>
-
+	<select id="pullPhase" parameterType="Integer" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE phase=#{value};
+	</select>
 	
 </mapper>

@@ -21,4 +21,5 @@ public interface OrdersService {
 	List<OrdersItemVO> UserBuyList(int userSrl);
 	List<BundleVO> callPayedOrderList();
 	int alterPhase(int phase, int srl);
+	List<OrdersVO> pullPhase(int phase);
 }

@@ -1,0 +1,174 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+}
+.clear{
+    clear: both;
+}
+#adminTotalWrap{
+    width: 1200px;
+    position: relative;
+    margin:0 auto;
+    height:100%;
+    padding: 10px;
+}
+#adminTotalWrap > div{
+    float: left;
+}
+
+#adminTotalWrap > .orderWrap{
+    width: 365px;
+    height:100%;
+    background-color: lightgray;
+    height:100%;
+    padding-bottom:10px;
+    margin-left:30px;
+    height:600px;
+    overflow-y:scroll;
+}
+
+
+#adminTotalWrap > .orderWrap > .stepTitle{
+    height:30px;
+    width: 100%;
+    background-color: darkgray;
+    color: white;
+    text-align: center;
+}
+
+#adminTotalWrap > .orderWrap > .step{
+    width:335px;
+    margin-left:5px;
+    height:auto;
+    margin-top:10px;
+    background-color: white;
+    overflow: auto;
+    padding-top:5px;
+    padding-bottom:5px;
+    padding-left:5px;
+}
+#adminTotalWrap > .orderWrap > .step > .orderFinalBtnWrap {
+    width:300px;
+    padding-left:5px;
+    text-align: center;
+    margin-top:10px;
+    height:30px;
+}
+#adminTotalWrap > .orderWrap > .step > .orderFinalBtnWrap > input{
+    width:100px;
+    padding:8px;
+    background: royalblue;
+    border-radius: 10px;
+    cursor:pointer;
+    border:0;
+    display: inline-block;
+    color:#fff;
+    font-size: 0.8em;
+}
+#adminTotalWrap > .orderWrap > .step > .orderFinalBtnWrap > input:last-child{
+    margin-left:10px;
+    background: darkslategrey;
+}
+#adminTotalWrap > .orderWrap > .step > div{
+    float: left;
+}
+#adminTotalWrap > .orderWrap > .step > .infoArea{
+    margin-left:5px;
+    line-height:30px;
+    width:270px;
+    cursor: pointer;
+}
+#adminTotalWrap > .orderWrap > .step > .infoArea > div{
+    float:left;
+}
+#adminTotalWrap > .orderWrap > .step > .infoArea > .title{
+    width:150px;
+    text-overflow: ellipsis;
+    overflow:hidden;
+}
+#adminTotalWrap > .orderWrap > .step > .infoArea > .time{
+    width:110px;
+}
+#adminTotalWrap > .orderWrap > .step > .infoArea > .customer{
+    width:150px;
+    font-size: 0.9em;
+}
+#adminTotalWrap > .orderWrap > .step > .infoArea > .number{
+    width:110px;
+}
+
+#adminTotalWrap > .orderWrap > .step > .infoArea > .time,
+#adminTotalWrap > .orderWrap > .step > .infoArea > .number{
+    display: inline-block;
+    margin-left:10px;
+}
+
+#adminTotalWrap > div > .step > .colorBar{
+    background-color: red;
+    width:7px;
+    border-radius: 5px;
+    height:60px;
+}
+#adminTotalWrap > div > .step > .nextStepBtn{
+    width:30px;
+    line-height:60px;
+    display: inline-block;
+    margin-left:10px;
+}
+#adminTotalWrap > div > .step > .nextStepBtn > img{
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+#adminTotalWrap > #categorySet2 .colorBar{
+    background-color: blue;
+}
+
+#adminTotalWrap > #categorySet3  .colorBar{
+    background-color: green;
+
+}
+#adminTotalWrap > #categorySet3  .colorBar{
+    background-color: green;
+    height:110px;
+}
+
+.showDetail{
+    position: absolute;
+    z-index: 99999;
+    display: none;
+    width:355px;
+    padding:0px;
+    background-color: #000;
+    -webkit-border-radius: 20px 20px;
+    -moz-border-radius: 20px 20px;
+    border-radius: 20px 20px;
+    overflow:hidden;
+}
+
+.detailInfo{
+    background-color: azure;
+    border-radius: 0 0 20px 20px;
+    padding:10px;
+}
+.detailInfo table{
+    width:100%;
+     text-align: center;
+}
+.detailInfo table th{
+    background-color: lightsteelblue;
+}.detailInfo table td{
+    border-bottom:1px solid lightsteelblue;
+    border-spacing: 0;
+}
+.detailInfo table .close{
+    background-color:#5555cd;
+    color:#fff;
+    font-weight: bold;
+    font-size: 18px;
+    padding-top:3px;
+    padding-bottom:3px;
+    cursor: pointer;
+}

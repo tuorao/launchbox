@@ -58,5 +58,12 @@ public class OrdersController {
 		return service.alterPhase(phase, orderSrl);
 	}
 
+	// 페이즈 별로 호출
+	@RequestMapping(value="/pullPhase", method=RequestMethod.GET)
+	public List<OrdersVO> OrderPullPhase(@RequestParam int phase){
+		return service.pullPhase(phase);
+	}
+	
+	
 	
 }
