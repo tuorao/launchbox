@@ -242,8 +242,41 @@ public class OrdersServiceImpl implements OrdersService{
 
 
 	@Override
-	public List<OrdersVO> pullPhase(int phase) {
-		return orderDao.pullPhase(phase);
+	public List<BundleVO> pullPhase(int phase) {
+		List<BundleVO> bundleList = new ArrayList<BundleVO>();
+		
+		OrdersVO order;
+		List<Integer> itemList;
+		List<String> sortList;
+		List<ItemVO> item = new ArrayList<ItemVO>();
+		ItemVO itemVO;
+		try{
+			def = new DefaultTransactionDefinition();
+			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+			status = transactionManager.getTransaction(def);
+			
+			sortList = orderDao.pullPhase(phase);
+			for(int i=0; i<sortList.size(); i++){
+				order = orderDao.pullOrder(sortList.get(i));
+				
+				itemList = dao.pullItemSrl(sortList.get(i));
+				for(int j=0; j<itemList.size(); j++){
+					itemVO = itemDao.pullItemInfo(itemList.get(j));
+					item.add(itemVO);
+				}
+				BundleVO bundled = new BundleVO();
+				bundled.setUser(userDao.pullUserInfo(order.getUserSrl()));
+				bundled.setOrder(order);
+				bundled.setItem(item);
+				
+				bundleList.add(bundled);
+			}
+			transactionManager.commit(status);
+		}catch(Exception e) {
+			e.printStackTrace();
+			transactionManager.rollback(status);
+		}
+		return bundleList;
 	}
 
 

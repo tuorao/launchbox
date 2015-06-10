@@ -60,9 +60,8 @@ public class OrdersController {
 
 	// 페이즈 별로 호출
 	@RequestMapping(value="/pullPhase", method=RequestMethod.GET)
-	public List<OrdersVO> OrderPullPhase(@RequestParam int phase){
+	public List<BundleVO> OrderPullPhase(@RequestParam int phase){
 		return service.pullPhase(phase);
-		//
 	}
 	
 	

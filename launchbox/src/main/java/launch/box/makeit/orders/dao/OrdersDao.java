@@ -22,5 +22,5 @@ public interface OrdersDao {
 	int alterAllPhase0to1();
 	int alterPhase(int phase, int srl);
 	List<String> pullPayedSort();
-	List<OrdersVO> pullPhase(int phase);
+	List<String> pullPhase(int phase);
 }

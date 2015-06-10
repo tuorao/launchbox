@@ -77,7 +77,7 @@ public class OrdersDaoImpl extends SqlSessionDaoSupport implements OrdersDao{
 	}
 
 	@Override
-	public List<OrdersVO> pullPhase(int phase) {
+	public List<String> pullPhase(int phase) {
 		return getSqlSession().selectList("order.pullPhase", phase);
 	}
 	
