@@ -131,18 +131,18 @@ public class OrdersServiceImpl implements OrdersService{
 		OrdersVO order;
 		List<ItemListVO> itemList;
 		List<String> sortList;
-		List<ItemVO> item = new ArrayList<ItemVO>();
+		List<ItemVO> item;
 		ItemVO itemVO;
 		try{
 			def = new DefaultTransactionDefinition();
 			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			status = transactionManager.getTransaction(def);
-			orderDao.alterAllPhase0to1();
+//			orderDao.alterAllPhase0to1();
 
 			sortList = orderDao.pullAllSort();
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
-				
+				item = new ArrayList<ItemVO>();
 				itemList = dao.pullItemList(sortList.get(i));
 				for(int j=0; j<itemList.size(); j++){
 					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
