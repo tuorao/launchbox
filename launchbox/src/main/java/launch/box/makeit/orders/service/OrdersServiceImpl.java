@@ -135,7 +135,7 @@ public class OrdersServiceImpl implements OrdersService{
 			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			status = transactionManager.getTransaction(def);
 			orderDao.alterAllPhase0to1();
-			
+
 			sortList = orderDao.pullAllSort();
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
