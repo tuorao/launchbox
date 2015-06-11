@@ -74,6 +74,11 @@ public class OrdersController {
 		return service.pullPhase(phase);
 	}
 	
+	@RequestMapping(value="/pushInput", method=RequestMethod.GET)
+	public int OrderPushInput(@RequestParam int orderSrl){
+		return service.pushInput(orderSrl);
+	}
+	
 	
 	
 }

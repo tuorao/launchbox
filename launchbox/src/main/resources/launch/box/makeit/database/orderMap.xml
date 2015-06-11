@@ -43,5 +43,10 @@
 	<select id="pullPhase" parameterType="Integer" resultType="String">
 		SELECT sort FROM orders WHERE phase=#{value};
 	</select>
-	
+	<select id="pullUserSrl" parameterType="Integer" resultType="Integer">
+		SELECT userSrl FROM orders WHERE srl=#{value};
+	</select>
+	<select id="pullOrderInfo" parameterType="Integer" resultType="launch.box.makeit.orders.vo.OrdersVO">
+		SELECT * FROM orders WHERE srl=#{srl};
+	</select>
 </mapper>

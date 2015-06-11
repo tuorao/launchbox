@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.Map;
 
 import kr.co.makeit.gcm.GCMSender;
+import kr.co.makeit.sms.SmsSender;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +47,17 @@ public class HomeController {
 		GCMSender gm = new GCMSender();
 		gm.setMessage("제목제목","메세지메세지");
 		gm.sendMessage(map.get("userKey"));
+		return "home";
+	}
+	
+	@RequestMapping(value="/smsTest")
+	public String sendSMS(@RequestParam Map<String, String> map) {
+		SmsSender sm = new SmsSender();
+		String sendNumber = "010-6506-2402" ; // 보내는 사람 번호 (업체 전화번호)
+		String rcvNumber = "01065062402"; // 받을사람
+		String contents = "문자내용"; // 문자내용
+		sm.sendSms(sendNumber,rcvNumber,contents);
+		
 		return "home";
 	}
 	

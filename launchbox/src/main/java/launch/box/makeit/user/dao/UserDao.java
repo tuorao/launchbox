@@ -14,7 +14,6 @@ public interface UserDao {
 	int dropout(int srl);
 	UserVO login(UserVO user);
 	int inputPushKey(UserVO user);
-	String checkEmail(UserVO user);
-	String checkNickname(UserVO user);
+	UserVO checkEmail(UserVO user);
 	UserVO pullUserInfo(int srl);
 }

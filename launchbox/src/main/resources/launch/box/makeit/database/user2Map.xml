@@ -2,15 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="user">
- 	<insert id="join" parameterType="launch.box.makeit.user.vo.UserVO">
-		INSERT INTO user
-		(storeSrls,email,emailDomain,password,name,nickname,phone,address,birthDate,joinDate,pwQuestion,pwAnswer)
-		VALUES
-		(#{storeSrls},#{email},#{emailDomain},#{password},#{name},#{nickname},#{phone},#{address},#{birthDate},#{joinDate},#{pwQuestion},#{pwAnswer});
-	</insert>
+
 	<insert id="join2" parameterType="launch.box.makeit.user.vo.UserVO">
-		insert into user (storeSrls,email) values (#{storeSrls},#{email});
+		INSERT INTO user
+		(storeSrls,email,emailDomain,password,name,phone,joinDate,oAuthProvider,pushKey)
+		VALUES
+		(#{storeSrls},#{email},#{emailDomain},#{password},#{name},#{phone},now(),#{oAuthProvider},#{pushKey});
 	</insert>
+
 	
   	<update id="alter" parameterType="launch.box.makeit.user.vo.UserVO">
 		UPDATE user SET
@@ -29,15 +28,15 @@
 		UPDATE user SET pushKey=#{pushKey} 
 		WHERE email=#{email} and emailDomain=#{emailDomain};
 	</update>
-<!--  	<select id="checkEmail" parameterMap="launch.box.makeit.user.vo.UserVO" resultType="String">
-		SELECT email FROM user
+  	<select id="checkEmail" parameterType="launch.box.makeit.user.vo.UserVO" resultType="launch.box.makeit.user.vo.UserVO">
+		SELECT * FROM user
 		WHERE email=#{email} and emailDomain=#{emailDomain};
-	</select> -->
- 	<select id="checkNickname" parameterType="launch.box.makeit.user.vo.UserVO" resultType="String">
-		SELECT nickname FROM user
-		WHERE nickname=#{nickname};
 	</select>
+
 	<select id="pullUserInfo" parameterType="Integer" resultType="launch.box.makeit.user.vo.UserVO">
-		SELECT * FROM user WHERE srl=#{srl};
+		SELECT * FROM user WHERE srl=#{value};
+	</select>
+	<select id="pullPushKey" parameterType="Integer" resultType="Integer">
+		SELECT pushkey FROM user WHERE srl=#{value};
 	</select>
 </mapper>	

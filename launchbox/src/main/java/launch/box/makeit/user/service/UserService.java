@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 3.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 3.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.user.service;
 
@@ -15,5 +15,4 @@ public interface UserService {
 	UserVO login(UserVO user);
 	int inputPushKey(UserVO user);
 	int checkEmail(UserVO user);
-	int checkNickname(UserVO user);
 }

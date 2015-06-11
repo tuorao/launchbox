@@ -17,10 +17,7 @@ public class UserVO {
 	private String emailDomain; // 이메일도메인
 	private String password; // 비밀번호
 	private String name; // 이름
-	private String nickname; // 닉네임
 	private String phone; // 폰
-	private String address; // 주소
-	private Date birthDate; // 생일
 	private Date joinDate; // 가입일자
 	private Date lastLoginDate; // 최근 로그인 날짜
 	private String pwQuestion; // 비밀번호 찾기 질문
@@ -28,7 +25,6 @@ public class UserVO {
 	private int oAuthProvider;
 	private String oAuthKey;
 	private String pushKey;
-	
 	public int getSrl() {
 		return srl;
 	}
@@ -65,29 +61,11 @@ public class UserVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getNickname() {
-		return nickname;
-	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
 	public String getPhone() {
 		return phone;
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
-	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public Date getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
 	}
 	public Date getJoinDate() {
 		return joinDate;
@@ -131,17 +109,7 @@ public class UserVO {
 	public void setPushKey(String pushKey) {
 		this.pushKey = pushKey;
 	}
-	
-	@Override
-	public String toString() {
-		return "UserVO [srl=" + srl + ", storeSrls=" + storeSrls + ", email="
-				+ email + ", emailDomain=" + emailDomain + ", password="
-				+ password + ", name=" + name + ", nickname=" + nickname
-				+ ", phone=" + phone + ", address=" + address + ", birthDate="
-				+ birthDate + ", joinDate=" + joinDate + ", lastLoginDate="
-				+ lastLoginDate + ", pwQuestion=" + pwQuestion + ", pwAnswer="
-				+ pwAnswer + ", oAuthProvider=" + oAuthProvider + ", oAuthKey="
-				+ oAuthKey + ", pushKey=" + pushKey + "]";
-	}
+
+
 	
 }

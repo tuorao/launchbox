@@ -172,6 +172,15 @@ pageEncoding="UTF-8"%>
             });
             $("body").on("click", ".sendToCustomer", function() {
                 // 고객에게 푸시알림 보내기
+            	  $.get("order/pushInput",{"orderSrl":"77"}, function(dat) {
+                      return 0;
+                  })
+                          .error(function() {a
+                        	  lert("실패");
+                          return 2; })
+                          .complete(function() { 
+							alert("메세지를 보냈습니다.")
+                          });
             });
             $("body").on("click", ".endOrder", function() {
                 // 결제완료

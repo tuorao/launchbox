@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 3.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 3.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.user.service;
 
@@ -49,10 +49,5 @@ public class UserServiceImpl implements UserService{
 		else return 0;
 	}
 
-	@Override
-	public int checkNickname(UserVO user) {
-		if(dao.checkNickname(user)!=null) return 1;
-		else return 0;
-	}
 
 }

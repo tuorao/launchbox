@@ -23,4 +23,5 @@ public interface OrdersService {
 	List<BundleVO> callPayedOrderList();
 	int alterPhase(int phase, int srl);
 	List<BundleVO> pullPhase(int phase);
+	int pushInput(int userSrl);
 }

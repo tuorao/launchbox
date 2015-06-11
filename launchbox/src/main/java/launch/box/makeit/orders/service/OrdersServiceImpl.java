@@ -9,6 +9,7 @@ package launch.box.makeit.orders.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import kr.co.makeit.gcm.GCMSender;
 import launch.box.makeit.item.dao.ItemDao;
 import launch.box.makeit.item.vo.ItemVO;
 import launch.box.makeit.itemlist.dao.ItemListDao;
@@ -19,6 +20,7 @@ import launch.box.makeit.orders.vo.OrdersItemVO;
 import launch.box.makeit.orders.vo.OrdersVO;
 import launch.box.makeit.sets.dao.SetsDao;
 import launch.box.makeit.user.dao.UserDao;
+import launch.box.makeit.user.vo.UserVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -284,6 +286,34 @@ public class OrdersServiceImpl implements OrdersService{
 		}
 		return bundleList;
 	}
+
+
+	@Override
+	public int pushInput(int orderSrl) {
+		
+		UserVO user = null;
+		try{
+			def = new DefaultTransactionDefinition();
+			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+			status = transactionManager.getTransaction(def);
+			
+			OrdersVO order = orderDao.pullOrderInfo(orderSrl);
+			user = userDao.pullUserInfo(order.getUserSrl());
+			transactionManager.commit(status);
+
+		}catch(Exception e) {
+			e.printStackTrace();
+			transactionManager.rollback(status);
+		}
+		
+		GCMSender gcm = new GCMSender();
+		gcm.setMessage("시발", "씨벌");
+		gcm.sendMessage(user.getPushKey());
+		return 0;
+	}
+
+
+	
 
 
 }

@@ -81,8 +81,13 @@
 				</exclusion>
 			</exclusions>
 			<scope>runtime</scope>
-		</dependency>
 
+		</dependency>
+		<dependency>
+			<groupId>com.ganyo</groupId>
+			<artifactId>gcm-server</artifactId>
+			<version>1.0.2</version>
+		</dependency>
 		<!-- @Inject -->
 		<dependency>
 			<groupId>javax.inject</groupId>

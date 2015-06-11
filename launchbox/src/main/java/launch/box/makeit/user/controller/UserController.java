@@ -49,8 +49,4 @@ public class UserController {
 		return service.checkEmail(user);
 	}
 	
-	@RequestMapping(value="/checkNickname.", method=RequestMethod.POST)
-	public int UserCheckNickname(@ModelAttribute UserVO user){
-		return service.checkNickname(user);
-	}
 }

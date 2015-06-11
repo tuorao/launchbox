@@ -23,4 +23,6 @@ public interface OrdersDao {
 	int alterPhase(int phase, int srl);
 	List<String> pullPayedSort();
 	List<String> pullPhase(int phase);
+	int pullUserSrl(int srl);
+	OrdersVO pullOrderInfo(int srl);
 }

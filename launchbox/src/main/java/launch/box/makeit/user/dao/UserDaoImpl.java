@@ -16,7 +16,7 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 
 	@Override
 	public int join(UserVO user) {
-		return getSqlSession().insert("user.join", user);
+		return getSqlSession().insert("user.join2", user);
 	}
 
 	@Override
@@ -40,18 +40,15 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 	}
 
 	@Override
-	public String checkEmail(UserVO user) {
-		return (String) getSqlSession().selectOne("user.checkEmail", user);
-	}
-
-	@Override
-	public String checkNickname(UserVO user) {
-		return (String) getSqlSession().selectOne("user.checkNickname", user);
+	public UserVO checkEmail(UserVO user) {
+		return (UserVO) getSqlSession().selectOne("user.checkEmail", user);
 	}
 
 	@Override
 	public UserVO pullUserInfo(int srl) {
 		return (UserVO) getSqlSession().selectOne("user.pullUserInfo", srl);
 	}
+
+
 
 }
