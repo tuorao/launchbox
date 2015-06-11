@@ -14,6 +14,7 @@ public class ItemVO {
 	private int price; // 가격
 	private String photo; // 사진
 	private String content; // 내용
+	private int amount; // 아이템 갯수
 	public int getSrl() {
 		return srl;
 	}
@@ -55,6 +56,12 @@ public class ItemVO {
 		return "ItemVO [srl=" + srl + ", category=" + category + ", title="
 				+ title + ", price=" + price + ", photo=" + photo
 				+ ", content=" + content + "]";
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 	
 

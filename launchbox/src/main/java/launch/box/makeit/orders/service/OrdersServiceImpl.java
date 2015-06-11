@@ -47,7 +47,7 @@ public class OrdersServiceImpl implements OrdersService{
 	TransactionStatus status = null;
 	
 	@Override
-	public int input(OrdersVO order, List<Integer> itemSrl) {
+	public int input(OrdersVO order, List<ItemListVO> itemSrl) {
 		ItemListVO itemList = new ItemListVO();
 		OrdersVO orders = new OrdersVO();
 		int d = 0;
@@ -60,8 +60,9 @@ public class OrdersServiceImpl implements OrdersService{
 			setsDao.input(order.getSort());
 
 			for(int i=0; i<itemSrl.size(); i++){
-				itemList.setItemSrl(itemSrl.get(i));
+				itemList.setItemSrl(itemSrl.get(i).getItemSrl());
 				itemList.setSort(order.getSort());
+				itemList.setAmount(itemSrl.get(i).getAmount());
 				dao.input(itemList);
 			}
 			orders.setPrice(setPrice(order.getSort())*order.getAmount());
@@ -79,10 +80,12 @@ public class OrdersServiceImpl implements OrdersService{
 	// 주문한것의 가격 합계
 	@Override
 	public int setPrice(String sort) {
-		List<Integer> t = dao.pullItemSrl(sort);
+		List<ItemListVO> t = dao.pullItemList(sort);
 		int a = 0;
 		for(int i=0; i<t.size(); i++){
-			a += itemDao.pullItemPrice(t.get(i));
+			System.out.println(t.get(i).getItemSrl());
+			ItemVO item = itemDao.pullItemInfo(t.get(i).getItemSrl());
+			a += item.getPrice()*t.get(i).getAmount();
 		}
 		return a;
 	}
@@ -126,7 +129,7 @@ public class OrdersServiceImpl implements OrdersService{
 		List<BundleVO> bundleList = new ArrayList<BundleVO>();
 		
 		OrdersVO order;
-		List<Integer> itemList;
+		List<ItemListVO> itemList;
 		List<String> sortList;
 		List<ItemVO> item = new ArrayList<ItemVO>();
 		ItemVO itemVO;
@@ -140,9 +143,10 @@ public class OrdersServiceImpl implements OrdersService{
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
 				
-				itemList = dao.pullItemSrl(sortList.get(i));
+				itemList = dao.pullItemList(sortList.get(i));
 				for(int j=0; j<itemList.size(); j++){
-					itemVO = itemDao.pullItemInfo(itemList.get(j));
+					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
+					itemVO.setAmount(itemList.get(j).getAmount());
 					item.add(itemVO);
 				}
 				BundleVO bundled = new BundleVO();
@@ -178,11 +182,11 @@ public class OrdersServiceImpl implements OrdersService{
 				OrdersItemVO oi = new OrdersItemVO();
 				oi.setOrder(order.get(i));
 
-				System.out.println(order.get(i).getSrl());
-				List<Integer> ItemList = dao.pullItemSrl(order.get(i).getSort());
-				System.out.println(order.get(i).getSort());
+				List<ItemListVO> ItemList = dao.pullItemList(order.get(i).getSort());
 				for(int a=0; a<ItemList.size(); a++){
-					item.add(itemDao.pullItemInfo(ItemList.get(a)));
+					ItemVO itemVO = itemDao.pullItemInfo(ItemList.get(a).getItemSrl());
+					itemVO.setAmount(ItemList.get(a).getAmount());
+					item.add(itemVO);
 				}
 				oi.setItem(item);
 				orderitem.add(oi);
@@ -201,7 +205,7 @@ public class OrdersServiceImpl implements OrdersService{
 		List<BundleVO> bundleList = new ArrayList<BundleVO>();
 		
 		OrdersVO order;
-		List<Integer> itemList;
+		List<ItemListVO> itemList;
 		List<String> sortList;
 		List<ItemVO> item = new ArrayList<ItemVO>();
 		ItemVO itemVO;
@@ -214,9 +218,10 @@ public class OrdersServiceImpl implements OrdersService{
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
 				
-				itemList = dao.pullItemSrl(sortList.get(i));
+				itemList = dao.pullItemList(sortList.get(i));
 				for(int j=0; j<itemList.size(); j++){
-					itemVO = itemDao.pullItemInfo(itemList.get(j));
+					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
+					itemVO.setAmount(itemList.get(j).getAmount());
 					item.add(itemVO);
 				}
 				BundleVO bundled = new BundleVO();
@@ -246,7 +251,7 @@ public class OrdersServiceImpl implements OrdersService{
 		List<BundleVO> bundleList = new ArrayList<BundleVO>();
 		
 		OrdersVO order;
-		List<Integer> itemList;
+		List<ItemListVO> itemList;
 		List<String> sortList;
 		List<ItemVO> item = new ArrayList<ItemVO>();
 		ItemVO itemVO;
@@ -259,9 +264,10 @@ public class OrdersServiceImpl implements OrdersService{
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
 				
-				itemList = dao.pullItemSrl(sortList.get(i));
+				itemList = dao.pullItemList(sortList.get(i));
 				for(int j=0; j<itemList.size(); j++){
-					itemVO = itemDao.pullItemInfo(itemList.get(j));
+					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
+					itemVO.setAmount(itemList.get(j).getAmount());
 					item.add(itemVO);
 				}
 				BundleVO bundled = new BundleVO();

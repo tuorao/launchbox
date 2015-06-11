@@ -20,9 +20,9 @@ submit = <input type="submit" value="submit"><br>
 ----------------회원 가입 -----------<br>
 <form action="order/input" method="post">
 userSrl : <input type="text" name="userSrl"><br>
-itemSrl : <input type="text" name="itemSrl"><br>
-itemSrl : <input type="text" name="itemSrl"><br>
-itemSrl : <input type="text" name="itemSrl"><br>
+itemSrl : <input type="text" name="itemSrl"><input type="text" name="itemAmount"><br>
+itemSrl : <input type="text" name="itemSrl"><input type="text" name="itemAmount"><br>
+itemSrl : <input type="text" name="itemSrl"><input type="text" name="itemAmount"><br>
 amount : <input type="text" name="amount"><br>
 <input type="submit" value="submit">
 </form>

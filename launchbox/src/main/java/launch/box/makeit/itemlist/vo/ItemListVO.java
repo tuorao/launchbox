@@ -10,6 +10,7 @@ public class ItemListVO {
 	
 	private int srl; // itemlist 고유번호
 	private int itemSrl; // 아이템 번호
+	private int amount;
 	private String sort; // 고유번호
 	public int getSrl() {
 		return srl;
@@ -23,6 +24,12 @@ public class ItemListVO {
 	public void setItemSrl(int itemSrl) {
 		this.itemSrl = itemSrl;
 	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
 	public String getSort() {
 		return sort;
 	}
@@ -31,8 +38,8 @@ public class ItemListVO {
 	}
 	@Override
 	public String toString() {
-		return "ItemListVO [srl=" + srl + ", itemSrl=" + itemSrl + ", sort="
-				+ sort + "]";
+		return "ItemListVO [srl=" + srl + ", itemSrl=" + itemSrl + ", amount="
+				+ amount + ", sort=" + sort + "]";
 	}
 
 }
