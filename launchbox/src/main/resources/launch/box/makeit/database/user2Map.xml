@@ -39,4 +39,12 @@
 	<select id="pullPushKey" parameterType="Integer" resultType="Integer">
 		SELECT pushkey FROM user WHERE srl=#{value};
 	</select>
+	<update id="createRandom" parameterType="launch.box.makeit.user.vo.UserVO">
+		UPDATE user SET
+		random=#{random}
+		WHERE srl=#{srl};
+	</update>
+	<select id="pullUserInfoFromRandom" parameterType="Integer" resultType="launch.box.makeit.user.vo.UserVO">
+		SELECT * FROM user WHERE random=#{random};
+	</select>
 </mapper>	

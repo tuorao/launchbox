@@ -16,4 +16,6 @@ public interface UserDao {
 	int inputPushKey(UserVO user);
 	UserVO checkEmail(UserVO user);
 	UserVO pullUserInfo(int srl);
+	int createRandom(UserVO user);
+	UserVO pullUserInfoFromRandom(int random);
 }

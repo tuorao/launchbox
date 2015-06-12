@@ -307,8 +307,9 @@ public class OrdersServiceImpl implements OrdersService{
 		}
 		
 		GCMSender gcm = new GCMSender();
-		gcm.setMessage("시발", "씨벌");
+		gcm.setMessage("나 초딩아니야", "凸");
 		gcm.sendMessage(user.getPushKey());
+		
 		return 0;
 	}
 

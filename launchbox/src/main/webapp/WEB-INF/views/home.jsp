@@ -34,8 +34,8 @@ userSrl : <input type="text" name="userSrl">
 페이즈호출 : <input type="text" name="phase">
 <input type="submit" value="submit">
 </form>
-<form action="send" method="get">
-안드키 : <input type="text" name="userKey">
+<form action="order/pushInput" method="get">
+안드키 : <input type="text" name="orderSrl">
 <input type="submit" value="submit">
 </form>
 </body>

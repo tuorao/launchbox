@@ -49,4 +49,16 @@ public class UserController {
 		return service.checkEmail(user);
 	}
 	
+	@RequestMapping(value="/confirmPhone", method=RequestMethod.POST)
+	public String UserConfirmPhone(@RequestParam int userSrl){
+		String result = service.confirmPhone(userSrl);
+		return result;
+	}
+	
+	@RequestMapping(value="/confirmCheck", method=RequestMethod.POST)
+	public int UserConfirmCheck(@RequestParam int userSrl,@RequestParam int random){
+		return service.confirmCheck(userSrl, random);
+	}
+
+	
 }

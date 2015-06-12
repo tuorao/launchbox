@@ -25,6 +25,7 @@ public class UserVO {
 	private int oAuthProvider;
 	private String oAuthKey;
 	private String pushKey;
+	private int random;
 	public int getSrl() {
 		return srl;
 	}
@@ -108,6 +109,12 @@ public class UserVO {
 	}
 	public void setPushKey(String pushKey) {
 		this.pushKey = pushKey;
+	}
+	public int getRandom() {
+		return random;
+	}
+	public void setRandom(int random) {
+		this.random = random;
 	}
 
 

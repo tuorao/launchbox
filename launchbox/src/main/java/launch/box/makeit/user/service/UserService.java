@@ -15,4 +15,6 @@ public interface UserService {
 	UserVO login(UserVO user);
 	int inputPushKey(UserVO user);
 	int checkEmail(UserVO user);
+	String confirmPhone(int userSrl);
+	int confirmCheck(int userSrl, int random);
 }

@@ -49,6 +49,16 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 		return (UserVO) getSqlSession().selectOne("user.pullUserInfo", srl);
 	}
 
+	@Override
+	public int createRandom(UserVO user) {
+		return getSqlSession().update("user.createRandom", user);
+	}
+
+	@Override
+	public UserVO pullUserInfoFromRandom(int random) {
+		return (UserVO) getSqlSession().selectOne("user.pullUserInfoFromRandom", random);
+	}
+
 
 
 }
