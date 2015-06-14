@@ -38,5 +38,10 @@ userSrl : <input type="text" name="userSrl">
 안드키 : <input type="text" name="orderSrl">
 <input type="submit" value="submit">
 </form>
+<form action="user/confirmPhone" method="post">
+유저srl : <input type="text" name="userSrl">
+<input type="submit" value="submit">
+</form>
+
 </body>
 </html>

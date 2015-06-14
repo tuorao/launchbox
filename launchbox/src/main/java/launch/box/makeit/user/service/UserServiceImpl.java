@@ -63,9 +63,6 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String confirmPhone(int userSrl) {
 		int a = (int)(Math.random()*1000000);
-		SmsSender sm = new SmsSender();
-		String sendNumber = "010-1234-1234";
-		String contents = "인증번호는 ["+a+"] 입니다";
 		UserVO user = new UserVO();
 		try {
 			def = new DefaultTransactionDefinition();
@@ -76,15 +73,21 @@ public class UserServiceImpl implements UserService{
 			UserVO user1 = new UserVO();
 			user1.setRandom(a);
 			user1.setSrl(userSrl);
-			dao.checkEmail(user1);
+			dao.createRandom(user1);
 			transactionManager.commit(status);
 		} catch(Exception e) {
 			e.printStackTrace();
 			transactionManager.rollback(status);
 		} 
+////		String rcvNumber = user.getPhone();
+		SmsSender sm = new SmsSender();
+		String sendNumber = "010-7704-3347" ; // 보내는 사람 번호 (업체 전화번호)
 		String rcvNumber = user.getPhone();
-		
-		return sm.sendSms(sendNumber, rcvNumber, contents);
+		String atos = String.valueOf(a);
+		String contents = "인증번호는 ["+atos+"] 입니다";
+
+		sm.sendSms(sendNumber,rcvNumber,contents);
+		return "12";
 	}
 
 	@Override

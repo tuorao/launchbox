@@ -73,7 +73,7 @@ pageEncoding="UTF-8"%>
              });
         }
         function changePhase(phaseParam,orderSrlParam){
-            $.get("/makeit/order/alterPhase",{"phase":phaseParam,"orderSrl":orderSrlParam}, function(dat) {
+            $.get("order/alterPhase",{"phase":phaseParam,"orderSrl":orderSrlParam}, function(dat) {
                 return 0;
             })
                     .error(function() { return 2; })
