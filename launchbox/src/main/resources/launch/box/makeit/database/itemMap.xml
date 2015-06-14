@@ -10,8 +10,10 @@
       SELECT price FROM item WHERE srl=#{srl};
    </select>
    <select id="pullItemInfo" parameterType="Integer" resultType="launch.box.makeit.item.vo.ItemVO">
-   	SELECT * FROM item where srl=#{srl};
+	  SELECT * FROM item where srl=#{srl};
    </select>
-   
+   <select id="pullPopularItem" resultType="launch.box.makeit.item.vo.ItemVO">
+   	  SELECT * FROM item where srl=1 or srl=3 or srl=7 or srl=11 or srl=14;
+   </select>
    
 </mapper>

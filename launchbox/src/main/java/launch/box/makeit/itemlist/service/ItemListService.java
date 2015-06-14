@@ -6,5 +6,5 @@
 */
 package launch.box.makeit.itemlist.service;
 
-public interface ItemListService {
+public interface ItemListService { // 없다
 }

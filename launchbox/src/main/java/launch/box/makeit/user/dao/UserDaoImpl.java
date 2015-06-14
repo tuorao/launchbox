@@ -60,5 +60,4 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 	}
 
 
-
 }

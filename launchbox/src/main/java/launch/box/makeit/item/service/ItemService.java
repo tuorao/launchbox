@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 2.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 2.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.item.service;
 
@@ -12,6 +12,7 @@ import launch.box.makeit.item.vo.ItemVO;
 
 
 public interface ItemService {
-	List<ItemVO> pullAllItem();
+	List<ItemVO> pullAllItem();		// List<ItemVO> ë¥¼ ê°€ì ¸ì˜¨ë‹¤
+	List<ItemVO> pullPopularItem();	// ì¸ê¸°ì•„ì´í…œì„ ê°€ì ¸ì˜¨ë‹¤
 }
 

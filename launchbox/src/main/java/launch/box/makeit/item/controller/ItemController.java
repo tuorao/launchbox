@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 2.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 2.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.item.controller;
 
@@ -23,8 +23,15 @@ public class ItemController {
 	@Autowired
 	ItemService service;
 	
+	// List<ItemVO>ë¥¼ ê°€ì ¸ì˜¨ë‹¤
 	@RequestMapping(value="/pullAllItem", method=RequestMethod.GET)
 	public List<ItemVO> ItemPullAllItem(){
 		return service.pullAllItem();
+	}
+	
+	// ì¸ê¸° ì•„ì´í…œì„ ê°€ì ¸ì˜¨ë‹¤
+	@RequestMapping(value="/pullPopularItem", method=RequestMethod.GET)
+	public List<ItemVO> ItemPullPopularItem(){
+		return service.pullPopularItem();
 	}
 }

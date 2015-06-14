@@ -50,14 +50,14 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/confirmPhone", method=RequestMethod.POST)
-	public String UserConfirmPhone(@RequestParam int userSrl){
-		String result = service.confirmPhone(userSrl);
+	public String UserConfirmPhone(@RequestParam String phone){
+		String result = service.confirmPhone(phone);
 		return result;
 	}
 	
 	@RequestMapping(value="/confirmCheck", method=RequestMethod.POST)
-	public int UserConfirmCheck(@RequestParam int userSrl,@RequestParam int random){
-		return service.confirmCheck(userSrl, random);
+	public int UserConfirmCheck(@RequestParam String phone,@RequestParam int num){
+		return service.confirmCheck(phone,num);
 	}
 
 	

@@ -25,7 +25,6 @@ public class UserVO {
 	private int oAuthProvider;
 	private String oAuthKey;
 	private String pushKey;
-	private int random;
 	public int getSrl() {
 		return srl;
 	}
@@ -110,13 +109,16 @@ public class UserVO {
 	public void setPushKey(String pushKey) {
 		this.pushKey = pushKey;
 	}
-	public int getRandom() {
-		return random;
+	@Override
+	public String toString() {
+		return "UserVO [srl=" + srl + ", storeSrls=" + storeSrls + ", email="
+				+ email + ", emailDomain=" + emailDomain + ", password="
+				+ password + ", name=" + name + ", phone=" + phone
+				+ ", joinDate=" + joinDate + ", lastLoginDate=" + lastLoginDate
+				+ ", pwQuestion=" + pwQuestion + ", pwAnswer=" + pwAnswer
+				+ ", oAuthProvider=" + oAuthProvider + ", oAuthKey=" + oAuthKey
+				+ ", pushKey=" + pushKey + "]";
 	}
-	public void setRandom(int random) {
-		this.random = random;
-	}
-
 
 	
 }

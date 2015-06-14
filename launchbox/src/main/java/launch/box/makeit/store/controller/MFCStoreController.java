@@ -1,8 +1,8 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.store.controller;
 
@@ -19,28 +19,29 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/store")
 public class MFCStoreController {
 
+	//crudë‹ˆê¹Œ ìì„¸í•œ ì„¤ëª…ì€ ìƒëµí•œë‹¤
 	@Autowired
 	StoreService service;
 	
-	// °¡ÀÔ
+	// ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="/join", method=RequestMethod.POST)
 	public int StoreJoin(@ModelAttribute StoreVO store){
 		return service.join(store);
 	}
 	
-	// Å»Åğ
+	// Å»ï¿½ï¿½
 	@RequestMapping(value="/dropout", method=RequestMethod.POST)
 	public int StoreDropout(@ModelAttribute StoreVO store){
 		return service.dropout(store.getEmail(), store.getEmainDoamin());
 	}
 	
-	// ÀÌ¸ŞÀÏ Áßº¹ Ã¼Å©
+	// ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½ßºï¿½ Ã¼Å©
 	@RequestMapping(value="/checkDuplicatedEmail", method=RequestMethod.POST)
 	public int StoreCheckDuplicatedEmail(@ModelAttribute StoreVO store){
 		return service.checkDuplicatedEmail(store.getEmail(), store.getEmainDoamin());
 	}
 	
-	// ·Î±×ÀÎ
+	// ï¿½Î±ï¿½ï¿½ï¿½
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public StoreVO StoreLogin(@ModelAttribute StoreVO store){
 		return service.login(store.getEmail(), store.getEmainDoamin(), store.getPassword());
@@ -52,13 +53,13 @@ public class MFCStoreController {
 		return service.pullStoreInfo(store.getEmail(), store.getEmainDoamin());
 	}
 	
-	// ³»¿ë º¯°æ
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	@RequestMapping(value="/alter", method=RequestMethod.POST)
 	public int StoreAlter(@ModelAttribute StoreVO store){
 		return service.alter(store);
 	}
 	
-	// ÃÖ±Ù ·Î±×ÀÎ ³¯Â¥ ÀÔ·Â
+	// ï¿½Ö±ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½Â¥ ï¿½Ô·ï¿½
 	@RequestMapping(value="/inputLastLoginDate", method=RequestMethod.POST)
 	public int StoreInputLastLoginDate(@ModelAttribute StoreVO store){
 		return service.inputLastLoginDate(store.getLastLoginDate(), store.getEmail(), store.getEmainDoamin());

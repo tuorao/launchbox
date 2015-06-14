@@ -39,7 +39,7 @@ userSrl : <input type="text" name="userSrl">
 <input type="submit" value="submit">
 </form>
 <form action="user/confirmPhone" method="post">
-유저srl : <input type="text" name="userSrl">
+유저srl : <input type="text" name="phone">
 <input type="submit" value="submit">
 </form>
 

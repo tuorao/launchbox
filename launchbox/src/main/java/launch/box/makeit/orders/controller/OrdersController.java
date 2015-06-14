@@ -29,6 +29,11 @@ public class OrdersController {
 	@Autowired
 	OrdersService service;
 	
+	/*  기능 : 주문 입력
+	 *  파라미터 : userSrl - 유저 srl, amount - 도시락의 수량, itemSrl - 도시락에 구성된 아이템srl 리스트, itemAmount - 도시락에 구성된 아이템들의 수량
+	 *  sort = userSrl + . + 현재시간(ssSSS)
+	 *  phase 초기 값은 0
+	 */
 	@RequestMapping(value="/input", method=RequestMethod.POST)
 	public int OrderInput(@RequestParam int userSrl, @RequestParam int amount, @RequestParam List<Integer> itemSrl, @RequestParam List<Integer> itemAmount){
 		OrdersVO order = new OrdersVO();
@@ -46,33 +51,49 @@ public class OrdersController {
 		return service.input(order,itemList);
 	}
 
-	
+	/*	기능 : 주문 리스트 호출
+	 * 	BundleVO는 List<Item>, OrdersVO, UserVO로 구성되어 있다
+	 */
 	@RequestMapping(value="/callOrderList", method=RequestMethod.GET)
 	public List<BundleVO> OrderCallOrderList(){
 		return service.callOrderList();
 	}
 	
+	/*	기능 : 고객이 구매했던 아이템들의 리스트 호출
+	 * 	파라미터 : userSrl - 유저 srl
+	 */
 	@RequestMapping(value="/UserBuyList", method=RequestMethod.POST)
 	public List<OrdersItemVO> OrderUserBuyList(@RequestParam int userSrl){
 		return service.UserBuyList(userSrl);
 	}
 	
+	/*	기능 : 구매완료가 확정된 주문의 리스트 호출
+	 * 	
+	 */
 	@RequestMapping(value="/callPayedOrderList", method=RequestMethod.GET)
 	public List<BundleVO> OrderCallPayedOrderList(){
 		return service.callPayedOrderList();
 	}
 	
+	/*	기능 : phase 변경 
+	 * 	파라미터 : phase - 주문 단계, orderSrl - 주문 번호
+	 */
 	@RequestMapping(value="/alterPhase", method=RequestMethod.GET)
 	public int OrderAlterPhase(@RequestParam int phase,@RequestParam int orderSrl){
 		return service.alterPhase(phase, orderSrl);
 	}
 
-	// 페이즈 별로 호출
+	/*	기능 : phase 별로 주문 리스트 호출
+	 * 
+	 */
 	@RequestMapping(value="/pullPhase", method=RequestMethod.GET)
 	public List<BundleVO> OrderPullPhase(@RequestParam int phase){
 		return service.pullPhase(phase);
 	}
 	
+	/*	기능 : orderSrl에 해당하는 주문에 안드로이드 push 실행
+	 * 	파라미터 : orderSrl - 주문번호
+	 */
 	@RequestMapping(value="/pushInput", method=RequestMethod.GET)
 	public int OrderPushInput(@RequestParam int orderSrl){
 		return service.pushInput(orderSrl);

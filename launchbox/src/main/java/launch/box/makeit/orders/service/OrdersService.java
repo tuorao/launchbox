@@ -13,6 +13,7 @@ import launch.box.makeit.orders.vo.BundleVO;
 import launch.box.makeit.orders.vo.OrdersItemVO;
 import launch.box.makeit.orders.vo.OrdersVO;
 
+// 여긴 복잡하니 impl에서 설명
 public interface OrdersService {
 	int setPrice(String sort);
 	int input(OrdersVO order, List<ItemListVO> itemSrl);

@@ -48,6 +48,12 @@ public class OrdersServiceImpl implements OrdersService{
 	DefaultTransactionDefinition def = null;
 	TransactionStatus status = null;
 	
+	/*
+	 * (non-Javadoc)
+	 * @see launch.box.makeit.orders.service.OrdersService#input(launch.box.makeit.orders.vo.OrdersVO, java.util.List)
+	 * 	db 호출을 여러번하기 때문에 트랜잭션 사용
+	 * 	주문 input
+	 */
 	@Override
 	public int input(OrdersVO order, List<ItemListVO> itemSrl) {
 		ItemListVO itemList = new ItemListVO();
@@ -59,17 +65,22 @@ public class OrdersServiceImpl implements OrdersService{
 			status = transactionManager.getTransaction(def);
 			
 			orderDao.input(order);
+			// 먼저 order를 입력 (userSrl,phase,startTime,sort,amount)
 			setsDao.input(order.getSort());
-
+			// OrderController에서 생성한 sort와 현재시간 입력
+			
 			for(int i=0; i<itemSrl.size(); i++){
 				itemList.setItemSrl(itemSrl.get(i).getItemSrl());
 				itemList.setSort(order.getSort());
 				itemList.setAmount(itemSrl.get(i).getAmount());
 				dao.input(itemList);
-			}
+			} // 주문받은 item들의 srl과 그 갯수를 for문을 통해 itemList에 집어넣는다
 			orders.setPrice(setPrice(order.getSort())*order.getAmount());
+			// 새로 생성한 orders 객체에 price 값을 입력한다
 			orders.setSort(order.getSort());
+			// 새로 생성한 orders 객체에 sort 값 입력한다
 			d = orderDao.plusInput(orders);
+			// orderDao.input에 추가로 업데이트를 실행한다
 			transactionManager.commit(status);
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -85,7 +96,6 @@ public class OrdersServiceImpl implements OrdersService{
 		List<ItemListVO> t = dao.pullItemList(sort);
 		int a = 0;
 		for(int i=0; i<t.size(); i++){
-			System.out.println(t.get(i).getItemSrl());
 			ItemVO item = itemDao.pullItemInfo(t.get(i).getItemSrl());
 			a += item.getPrice()*t.get(i).getAmount();
 		}
@@ -139,24 +149,27 @@ public class OrdersServiceImpl implements OrdersService{
 			def = new DefaultTransactionDefinition();
 			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			status = transactionManager.getTransaction(def);
-//			orderDao.alterAllPhase0to1();
 
 			sortList = orderDao.pullAllSort();
+			// 분류 고유번호들을 호출한다
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
+				// 고유값을 통해 order 값을 불러온다
 				item = new ArrayList<ItemVO>();
 				itemList = dao.pullItemList(sortList.get(i));
+				// 고유값을 통해 아이템 리스트를 불러온다
 				for(int j=0; j<itemList.size(); j++){
 					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
 					itemVO.setAmount(itemList.get(j).getAmount());
 					item.add(itemVO);
-				}
+				} // 불러온 아이템 리스트를 기반으로 아이템의 가격과 양을 입력한다
 				BundleVO bundled = new BundleVO();
 				bundled.setUser(userDao.pullUserInfo(order.getUserSrl()));
 				bundled.setOrder(order);
 				bundled.setItem(item);
 				
 				bundleList.add(bundled);
+				// 생성한 bundle 객체에 값을 집어넣는다
 			}
 			transactionManager.commit(status);
 		}catch(Exception e) {
@@ -167,6 +180,7 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 
 
+	// 유저가 이미 구입했던 아이템들을 호출한다
 	@Override
 	public List<OrdersItemVO> UserBuyList(int userSrl) {
 		
@@ -202,6 +216,7 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 
 
+	// 이건 이미 지불된 주문의 목록을 호출하는거고
 	@Override
 	public List<BundleVO> callPayedOrderList() {
 		List<BundleVO> bundleList = new ArrayList<BundleVO>();
@@ -242,6 +257,7 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 
 
+	// 페이즈 변경
 	@Override
 	public int alterPhase(int phase, int srl) {
 		return orderDao.alterPhase(phase, srl);
@@ -288,6 +304,7 @@ public class OrdersServiceImpl implements OrdersService{
 	}
 
 
+	// 이거슨 푸쉬
 	@Override
 	public int pushInput(int orderSrl) {
 		

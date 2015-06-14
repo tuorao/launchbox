@@ -32,5 +32,10 @@ public class ItemDaoImpl extends SqlSessionDaoSupport implements ItemDao{
 		return (ItemVO) getSqlSession().selectOne("item.pullItemInfo", srl);
 	}
 
+	@Override
+	public List<ItemVO> pullPopularItem() {
+		return getSqlSession().selectList("item.pullPopularItem");
+	}
+
 	
 }

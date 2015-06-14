@@ -25,4 +25,9 @@ public class ItemSerivceImpl implements ItemService{
 		return dao.pullAllItem();
 	}
 
+	@Override
+	public List<ItemVO> pullPopularItem() {
+		return dao.pullPopularItem();
+	}
+
 }

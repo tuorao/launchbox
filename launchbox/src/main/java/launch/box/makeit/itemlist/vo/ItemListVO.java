@@ -8,10 +8,10 @@ package launch.box.makeit.itemlist.vo;
 
 public class ItemListVO {
 	
-	private int srl; // itemlist 고유번호
-	private int itemSrl; // 아이템 번호
-	private int amount;
-	private String sort; // 고유번호
+	private int srl; 		// itemlist 고유번호
+	private int itemSrl; 	// 아이템 번호
+	private int amount;		// 아이템의 수량
+	private String sort; 	// 고유번호
 	public int getSrl() {
 		return srl;
 	}

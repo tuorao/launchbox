@@ -7,6 +7,8 @@
 package launch.box.makeit.user.service;
 
 import kr.co.makeit.sms.SmsSender;
+import launch.box.makeit.mass.dao.MassDao;
+import launch.box.makeit.mass.vo.MassVO;
 import launch.box.makeit.user.dao.UserDao;
 import launch.box.makeit.user.vo.UserVO;
 
@@ -22,7 +24,8 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	UserDao dao;
-	
+	@Autowired
+	MassDao massDao;
 	@Autowired
 	PlatformTransactionManager transactionManager;
 	
@@ -60,43 +63,76 @@ public class UserServiceImpl implements UserService{
 		else return 0;
 	}
 
+//	@Override
+//	public String confirmPhone(int userSrl) {
+//		int a = (int)(Math.random()*1000000);
+//		UserVO user = new UserVO();
+//		try {
+//			def = new DefaultTransactionDefinition();
+//			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+//			status = transactionManager.getTransaction(def);
+//			
+//			user = dao.pullUserInfo(userSrl);
+//			UserVO user1 = new UserVO();
+//			user1.setRandom(a);
+//			user1.setSrl(userSrl);
+//			dao.createRandom(user1);
+//			transactionManager.commit(status);
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//			transactionManager.rollback(status);
+//		} 
+//////		String rcvNumber = user.getPhone();
+//		SmsSender sm = new SmsSender();
+//		String sendNumber = "010-7704-3347" ; // 보내는 사람 번호 (업체 전화번호)
+//		String rcvNumber = user.getPhone();
+//		String atos = String.valueOf(a);
+//		String contents = "인증번호는 ["+atos+"] 입니다";
+//
+//		sm.sendSms(sendNumber,rcvNumber,contents);
+//		return "12";
+//	}
+	
 	@Override
-	public String confirmPhone(int userSrl) {
+	public String confirmPhone(String phone) {
 		int a = (int)(Math.random()*1000000);
-		UserVO user = new UserVO();
+		
+		MassVO mass = new MassVO();
+		mass.setNum(a);
+		mass.setPhone(phone);
+		
 		try {
 			def = new DefaultTransactionDefinition();
 			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			status = transactionManager.getTransaction(def);
 			
-			user = dao.pullUserInfo(userSrl);
-			UserVO user1 = new UserVO();
-			user1.setRandom(a);
-			user1.setSrl(userSrl);
-			dao.createRandom(user1);
+			if(massDao.existCheck(phone)!=null){
+				massDao.input(mass);
+			} else {
+				massDao.firstInput(mass);
+			}
+			
 			transactionManager.commit(status);
-		} catch(Exception e) {
+		} catch(Exception e){
 			e.printStackTrace();
 			transactionManager.rollback(status);
-		} 
-////		String rcvNumber = user.getPhone();
+		}
+
 		SmsSender sm = new SmsSender();
 		String sendNumber = "010-7704-3347" ; // 보내는 사람 번호 (업체 전화번호)
-		String rcvNumber = user.getPhone();
+		String rcvNumber = phone;
 		String atos = String.valueOf(a);
 		String contents = "인증번호는 ["+atos+"] 입니다";
 
-		sm.sendSms(sendNumber,rcvNumber,contents);
-		return "12";
+		return sm.sendSms(sendNumber,rcvNumber,contents);
 	}
 
 	@Override
-	public int confirmCheck(int userSrl, int random) {
-		UserVO user = dao.pullUserInfoFromRandom(random);
-		if(userSrl==user.getSrl()){
+	public int confirmCheck(String phone, int num) {
+		int dbNum = massDao.pull(phone);
+		if(dbNum==num){
 			return 1;
 		} else return 0;
 	}
-
 
 }

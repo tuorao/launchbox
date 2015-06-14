@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mass">
+	<insert id="firstInput" parameterType="launch.box.makeit.mass.vo.MassVO">
+		INSERT INTO mass
+		(num,phone) values
+		(#{num},#{phone});
+	</insert>
+	<update id="input" parameterType="launch.box.makeit.mass.vo.MassVO">
+		UPDATE mass SET
+		num=#{num}
+		WHERE phone=#{phone};
+	</update>
+	<select id="existCheck" parameterType="String" resultType="String">
+		SELECT phone FROM mass WHERE phone=#{phone};
+	</select>
+	<select id="pull" parameterType="String" resultType="Integer">
+		SELECT num FROM mass WHERE phone=#{phone};
+	</select>
+</mapper>
