@@ -53,11 +53,11 @@ public class GCMSender {
 	 * @param title 제몰
 	 * @param msg 내용
 	 */
-	public void setMessage(String title, String msg) {
+	public void setMessage(String title, String msg, String requestCode, String iconUrl, String bigImgUrl) {
 		gcmSender = new Sender(API_KEY);
 		gcmMessage = new Message.Builder().collapseKey(COLLAPSE_KEY)
 				.delayWhileIdle(DELAY_WHILE_IDLE).timeToLive(TIME_TO_LIVE)
-				.addData("title", title).addData("msg", msg)
+				.addData("title", title).addData("msg", msg).addData("requestCode", requestCode).addData("iconUrl", iconUrl).addData("bigImgUr", bigImgUrl)
 				.build();
 	}
 

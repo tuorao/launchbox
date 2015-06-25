@@ -169,8 +169,8 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
 				<configuration>
-					<path>/launchbox</path>
-					<url>http://test.fallintrip.co.kr/manager/text</url>
+					<path>/lunchbox</path>
+					<url>http://yumbox.make-it.co.kr/manager/text</url>
 					<username>haneu89</username>
 					<password>wlsgud5500</password>
 				</configuration>

@@ -25,4 +25,5 @@ public interface OrdersService {
 	int alterPhase(int phase, int srl);
 	List<BundleVO> pullPhase(int phase);
 	int pushInput(int userSrl);
+	int noticePush(String notice);
 }

@@ -23,13 +23,19 @@ public class ItemController {
 	@Autowired
 	ItemService service;
 	
-	// List<ItemVO>를 가져온다
+	/** 기능 : List<ItemVO>를 가져온다
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/pullAllItem", method=RequestMethod.GET)
 	public List<ItemVO> ItemPullAllItem(){
 		return service.pullAllItem();
 	}
 	
-	// 인기 아이템을 가져온다
+	/** 기능 :인기 아이템을 가져온다 (사실은 그냥 맛있어보이는거 가꼬옴)
+	 * 
+	 * @return
+	 */
 	@RequestMapping(value="/pullPopularItem", method=RequestMethod.GET)
 	public List<ItemVO> ItemPullPopularItem(){
 		return service.pullPopularItem();

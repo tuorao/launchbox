@@ -4,8 +4,8 @@
 <mapper namespace="order">
 	<insert id="input" parameterType="launch.box.makeit.orders.vo.OrdersVO">
 		INSERT INTO orders
-		(userSrl,phase,startTime,sort,amount) VALUES
-		(#{userSrl},#{phase},now(),#{sort},#{amount});
+		(userSrl,phase,title,content,startTime,sort,amount) VALUES
+		(#{userSrl},#{phase},#{title},#{content},now(),#{sort},#{amount});
 	</insert>
 	<select id="pullRecentInputSrl" resultType="Integer">
 		select srl from

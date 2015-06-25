@@ -6,6 +6,8 @@
 */
 package launch.box.makeit.user.dao;
 
+import java.util.List;
+
 import launch.box.makeit.user.vo.UserVO;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
@@ -57,6 +59,11 @@ public class UserDaoImpl extends SqlSessionDaoSupport implements UserDao{
 	@Override
 	public UserVO pullUserInfoFromRandom(int random) {
 		return (UserVO) getSqlSession().selectOne("user.pullUserInfoFromRandom", random);
+	}
+
+	@Override
+	public List<String> pullAllPushKey() {
+		return getSqlSession().selectList("user.pullAllPushKey");
 	}
 
 

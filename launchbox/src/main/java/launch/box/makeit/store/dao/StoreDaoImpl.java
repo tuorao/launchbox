@@ -1,12 +1,11 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.store.dao;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,10 +18,9 @@ import org.springframework.stereotype.Repository;
 public class StoreDaoImpl extends SqlSessionDaoSupport implements StoreDao{
 
 	@Override
-	public int inputLastLoginDate(Date lastLoginDate, String email,
+	public int inputLastLoginDate( String email,
 			String emailDomain) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("lastLoginDate", lastLoginDate);
 		map.put("email", email);
 		map.put("emailDomain", emailDomain);
 		return getSqlSession().update("store.inputLastLoginDate", map);

@@ -1,28 +1,30 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.store.vo;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 public class StoreVO {
 	
-	private int srl; // ¸ÅÀå °íÀ¯ ¹øÈ£
-	private String email; // id·Î »ç¿ëÇÒ email
-	private String emainDoamin; // emailÀÇ µµ¸ŞÀÎ
-	private String password; // ºñ¹Ğ¹øÈ£
-	private String phone; // ÀüÈ­¹øÈ£
-	private String location; // ÁÖ¼Ò
-	private String division; // ¾÷Á¾±¸ºĞ
-	private int worker; // Á÷¿ø ¼ö
-	private String crn; // »ç¾÷ÀÚ µî·Ï¹øÈ£
-	private String info; // ¸ÅÀå Á¤º¸
-	private Date joinDate; // °¡ÀÔÀÏ
-	private Date lastLoginDate; // ÃÖ±Ù ·Î±×ÀÎ ³¯Â¥
-	private Date alterDate; // »ç¿ëÀÚ Á¤º¸ º¯°æ ³¯Â¥
+	private int srl;			// store srl
+	private String email; 		// id ì²˜ëŸ¼ ì“°ëŠ” email
+	private String emainDoamin; // emailì˜ ë„ë©”ì¸
+	private String password; 	// ë¹„ë°€ë²ˆí˜¸
+	private String phone; 		// ì „í™”ë²ˆí˜¸
+	private String location;	// ì£¼ì†Œ
+	private String division; 	// ì—…ì¢… êµ¬ë¶„
+	private int worker; 		// ì¢…ì—…ì› ìˆ«ì
+	private String crn; 		// ì‚¬ì—…ìë“±ë¡ë²ˆí˜¸
+	private String info; 		// ë§¤ì¥ ì •ë³´
+	private Date joinDate; 		// ê°€ì…ì¼ì
+	private Date lastLoginDate; // ìµœê·¼ ë¡œê·¸ì¸ ì¼ì
+	private Date alterDate; 	// ì •ë³´ ë³€ê²½ ì¼ì
+	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	public int getSrl() {
 		return srl;
@@ -84,20 +86,26 @@ public class StoreVO {
 	public void setInfo(String info) {
 		this.info = info;
 	}
-	public Date getJoinDate() {
-		return joinDate;
+	public String getJoinDate() {
+		if(joinDate!=null)
+			return format.format(joinDate);
+		else return null;
 	}
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-	public Date getLastLoginDate() {
-		return lastLoginDate;
+	public String getLastLoginDate() {
+		if(lastLoginDate!=null)
+			return format.format(lastLoginDate);
+		else return null;
 	}
 	public void setLastLoginDate(Date lastLoginDate) {
 		this.lastLoginDate = lastLoginDate;
 	}
-	public Date getAlterDate() {
-		return alterDate;
+	public String getAlterDate() {
+		if(alterDate!=null)
+			return format.format(alterDate);
+		else return null;
 	}
 	public void setAlterDate(Date alterDate) {
 		this.alterDate = alterDate;

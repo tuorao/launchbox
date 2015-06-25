@@ -1,12 +1,10 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.store.service;
-
-import java.sql.Date;
 
 import launch.box.makeit.store.vo.StoreVO;
 
@@ -17,5 +15,5 @@ public interface StoreService {
 	int checkDuplicatedEmail(String email, String emailDomain);
 	StoreVO pullStoreInfo(String email, String emailDomain);
 	StoreVO login(String email, String emailDomain, String password);
-	int inputLastLoginDate(Date lastLoginDate, String email, String emailDomain);
+	int inputLastLoginDate(String email, String emailDomain);
 }

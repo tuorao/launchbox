@@ -56,10 +56,10 @@ public class OrdersServiceImpl implements OrdersService{
 	 */
 	@Override
 	public int input(OrdersVO order, List<ItemListVO> itemSrl) {
-		ItemListVO itemList = new ItemListVO();
 		OrdersVO orders = new OrdersVO();
 		int d = 0;
 		try {
+			
 			def = new DefaultTransactionDefinition();
 			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			status = transactionManager.getTransaction(def);
@@ -70,6 +70,8 @@ public class OrdersServiceImpl implements OrdersService{
 			// OrderController에서 생성한 sort와 현재시간 입력
 			
 			for(int i=0; i<itemSrl.size(); i++){
+				ItemListVO itemList = new ItemListVO();
+
 				itemList.setItemSrl(itemSrl.get(i).getItemSrl());
 				itemList.setSort(order.getSort());
 				itemList.setAmount(itemSrl.get(i).getAmount());
@@ -185,7 +187,6 @@ public class OrdersServiceImpl implements OrdersService{
 	public List<OrdersItemVO> UserBuyList(int userSrl) {
 		
 		List<OrdersItemVO> orderitem = new ArrayList<OrdersItemVO>();
-		List<ItemVO> item = new ArrayList<ItemVO>();
 		
 		try {
 			def = new DefaultTransactionDefinition();
@@ -198,7 +199,9 @@ public class OrdersServiceImpl implements OrdersService{
 				OrdersItemVO oi = new OrdersItemVO();
 				oi.setOrder(order.get(i));
 
-				List<ItemListVO> ItemList = dao.pullItemList(order.get(i).getSort());
+				List<ItemListVO> ItemList = new ArrayList<ItemListVO>();
+				ItemList = dao.pullItemList(order.get(i).getSort());
+				List<ItemVO> item = new ArrayList<ItemVO>();
 				for(int a=0; a<ItemList.size(); a++){
 					ItemVO itemVO = itemDao.pullItemInfo(ItemList.get(a).getItemSrl());
 					itemVO.setAmount(ItemList.get(a).getAmount());
@@ -224,7 +227,6 @@ public class OrdersServiceImpl implements OrdersService{
 		OrdersVO order;
 		List<ItemListVO> itemList;
 		List<String> sortList;
-		List<ItemVO> item = new ArrayList<ItemVO>();
 		ItemVO itemVO;
 		try{
 			def = new DefaultTransactionDefinition();
@@ -236,6 +238,7 @@ public class OrdersServiceImpl implements OrdersService{
 				order = orderDao.pullOrder(sortList.get(i));
 				
 				itemList = dao.pullItemList(sortList.get(i));
+				List<ItemVO> item = new ArrayList<ItemVO>();
 				for(int j=0; j<itemList.size(); j++){
 					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
 					itemVO.setAmount(itemList.get(j).getAmount());
@@ -269,9 +272,8 @@ public class OrdersServiceImpl implements OrdersService{
 		List<BundleVO> bundleList = new ArrayList<BundleVO>();
 		
 		OrdersVO order;
-		List<ItemListVO> itemList;
 		List<String> sortList;
-		List<ItemVO> item = new ArrayList<ItemVO>();
+		
 		ItemVO itemVO;
 		try{
 			def = new DefaultTransactionDefinition();
@@ -281,8 +283,9 @@ public class OrdersServiceImpl implements OrdersService{
 			sortList = orderDao.pullPhase(phase);
 			for(int i=0; i<sortList.size(); i++){
 				order = orderDao.pullOrder(sortList.get(i));
-				
+				List<ItemListVO> itemList = new ArrayList<ItemListVO>();
 				itemList = dao.pullItemList(sortList.get(i));
+				List<ItemVO> item = new ArrayList<ItemVO>();
 				for(int j=0; j<itemList.size(); j++){
 					itemVO = itemDao.pullItemInfo(itemList.get(j).getItemSrl());
 					itemVO.setAmount(itemList.get(j).getAmount());
@@ -324,9 +327,20 @@ public class OrdersServiceImpl implements OrdersService{
 		}
 		
 		GCMSender gcm = new GCMSender();
-		gcm.setMessage("나 초딩아니야", "凸");
+		gcm.setMessage("주문완료!", user.getName()+" 님이 주문하신 도시락이 조리 완료되었습니다", "2", null, null); // requestCode=2 제작 완료
 		gcm.sendMessage(user.getPushKey());
 		
+		
+		return 0;
+	}
+
+
+	@Override
+	public int noticePush(String notice) {
+		List<String> AllUserPushKey = userDao.pullAllPushKey();
+		GCMSender gcm = new GCMSender();
+		gcm.setMessage("공지사항", notice, "1", null, null); // 1 은 공지사항
+		gcm.sendMultiMessage(AllUserPushKey);
 		return 0;
 	}
 

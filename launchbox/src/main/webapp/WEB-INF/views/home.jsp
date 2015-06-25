@@ -24,6 +24,7 @@ itemSrl : <input type="text" name="itemSrl"><input type="text" name="itemAmount"
 itemSrl : <input type="text" name="itemSrl"><input type="text" name="itemAmount"><br>
 itemSrl : <input type="text" name="itemSrl"><input type="text" name="itemAmount"><br>
 amount : <input type="text" name="amount"><br>
+title : <input type="text" name="title"><br>
 <input type="submit" value="submit">
 </form>
 <form action="order/UserBuyList" method="post">
@@ -42,6 +43,12 @@ userSrl : <input type="text" name="userSrl">
 유저srl : <input type="text" name="phone">
 <input type="submit" value="submit">
 </form>
-
-</body>
+<form action="user/photo" method="post">
+photo : <input type="file" name="photo">
+photoname : <input type="text" name="photoname">
+<input type="submit" value="submit">
+</form>
+<form action="send" method="get">
+<input type="submit" value="submit">
+</form></body>
 </html>

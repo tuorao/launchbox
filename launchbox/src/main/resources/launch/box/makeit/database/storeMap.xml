@@ -5,11 +5,11 @@
 	<insert id="join" parameterType="launch.box.makeit.store.vo.StoreVO">
 		INSERT INTO store
 		(email,emailDomain,password,phone,location,division,worker,crn,info,joinDate) VALUES
-		(#{email},#{emailDomain},#{password},#{phone},#{location},#{division},{#worker},#{crn},#{info},#{joinDate});
+		(#{email},#{emailDomain},#{password},#{phone},#{location},#{division},{#worker},#{crn},#{info},now());
 	</insert>
 	<update id="alter" parameterType="launch.box.makeit.store.vo.StoreVO">
 		UPDATE store SET
-		password=#{password}, phone=#{phone}, location=#{location}, division=#{division}, worker=#{worker}, crn=#{crn}, info=#{info}
+		password=#{password}, phone=#{phone}, location=#{location}, division=#{division}, worker=#{worker}, crn=#{crn}, info=#{info}, alterDate=now()
 		WHERE email=#{email} and emailDomain=#{emailDomain};
 	</update>
 	<delete id="dropout" parameterType="Map">
@@ -26,6 +26,6 @@
 	</select>
 	<update id="inputLastLoginDate">
 		UPDATE store SET
-		lastLoginDate=#{lastLoginDate} WHERE email=#{email} and emailDomain=#{emailDomain};
+		lastLoginDate=now() WHERE email=#{email} and emailDomain=#{emailDomain};
 	</update>
 </mapper>

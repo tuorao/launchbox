@@ -93,6 +93,10 @@ public class UserServiceImpl implements UserService{
 //		return "12";
 //	}
 	
+	/*	기능 : 전화번호를 입력받고 해당 번호로 문자 메시지 난수 6자리값 전송
+	 * 	파라미터 : phone - 전화번호
+	 * 	"error" 리턴시 전송 실패
+	 */
 	@Override
 	public String confirmPhone(String phone) {
 		int a = (int)(Math.random()*1000000);
@@ -106,10 +110,10 @@ public class UserServiceImpl implements UserService{
 			def.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
 			status = transactionManager.getTransaction(def);
 			
-			if(massDao.existCheck(phone)!=null){
-				massDao.input(mass);
+			if(massDao.existCheck(phone)!=null){	// 전화번호를 입력해서 기존 정보 존재유무 체크
+				massDao.input(mass);				// 기존 입력값이 없을시 신규 입력
 			} else {
-				massDao.firstInput(mass);
+				massDao.firstInput(mass);			// 기존 입력값이 존재 할 경우 기존 값 수정
 			}
 			
 			transactionManager.commit(status);
@@ -127,10 +131,13 @@ public class UserServiceImpl implements UserService{
 		return sm.sendSms(sendNumber,rcvNumber,contents);
 	}
 
+	/*	기능 : 난수값 
+	 * 	파라미터 : phone - 전화번호, num - 문자로 전송 된  난수 6자리 값
+	 */
 	@Override
 	public int confirmCheck(String phone, int num) {
-		int dbNum = massDao.pull(phone);
-		if(dbNum==num){
+		int dbNum = massDao.pull(phone);	// DB에 입력된 난수 값을 호출
+		if(dbNum==num){						// DB에 저장된 난수값과 입력받은 난수값을 비교해서 리턴
 			return 1;
 		} else return 0;
 	}

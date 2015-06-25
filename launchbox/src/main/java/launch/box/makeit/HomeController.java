@@ -43,10 +43,10 @@ public class HomeController {
 	
 	
 	@RequestMapping(value = "/send", method = RequestMethod.GET)
-	public String send(@RequestParam Map<String, String> map) {
+	public String send() {
 		GCMSender gm = new GCMSender();
-		gm.setMessage("제목제목","메세지메세지");
-		gm.sendMessage(map.get("userKey"));
+		gm.setMessage("시발", "강산이", "개", "강", "산");
+		gm.sendMessage("APA91bGw706C-BQ4s9w4fIlbLhUocKXnv1A44GTrkLaQgx_ldDlwcvKhBIqsOzY4nKRmzLKQcdIYYb4ueCE7R52irKGn9lwOMM4F60-sWX1fx_EYgqN8nen0OuwK2S9U8ZsAwMTc8iTa3lfG6bLhseaQ-kgi_MVZ3A");
 		return "home";
 	}
 	

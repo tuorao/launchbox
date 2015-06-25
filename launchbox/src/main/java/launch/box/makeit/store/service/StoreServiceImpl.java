@@ -1,12 +1,10 @@
 /*
-* ÀÛ¼ºÀÏ : 2015. 6. 1.
-* ÀÛ¼ºÀÚ : Administrator
+* ï¿½Û¼ï¿½ï¿½ï¿½ : 2015. 6. 1.
+* ï¿½Û¼ï¿½ï¿½ï¿½ : Administrator
 *
-* ¼³¸í
+* ï¿½ï¿½ï¿½ï¿½
 */
 package launch.box.makeit.store.service;
-
-import java.sql.Date;
 
 import launch.box.makeit.store.dao.StoreDao;
 import launch.box.makeit.store.vo.StoreVO;
@@ -52,9 +50,9 @@ public class StoreServiceImpl implements StoreService{
 	}
 
 	@Override
-	public int inputLastLoginDate(Date lastLoginDate, String email,
+	public int inputLastLoginDate( String email,
 			String emailDomain) {
-		return dao.inputLastLoginDate(lastLoginDate, email, emailDomain);
+		return dao.inputLastLoginDate( email, emailDomain);
 	}
 
 }

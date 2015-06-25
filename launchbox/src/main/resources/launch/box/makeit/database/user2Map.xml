@@ -47,4 +47,8 @@
 	<select id="pullUserInfoFromRandom" parameterType="Integer" resultType="launch.box.makeit.user.vo.UserVO">
 		SELECT * FROM user WHERE random=#{random};
 	</select>
+	<select id="pullAllPushKey" resultType="String">
+		SELECT pushKey FROM user
+		WHERE storeSrls=1;
+	</select>
 </mapper>	
